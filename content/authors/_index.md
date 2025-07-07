@@ -57,11 +57,12 @@ social:
     icon_pack: fab
     link: https://www.linkedin.com/christybiji # Put your LinkedIn link here
 
+
 # Link to a PDF of your resume/CV. 
 # You can upload your CV to the `static/uploads/` folder and link to it like this:
-#   - icon: cv
-#     icon_pack: ai
-#     link: uploads/resume.pdf
+  - icon: cv
+    icon_pack: ai
+    link: uploads/resume.pdf
 
 # The text BELOW the '---' line is your main, long-form biography.
 # You can write a few paragraphs here.
