@@ -7,7 +7,9 @@ role: Research Associate
 
 #Status Emoji
 status:
- - icon: 🔬
+  icon: "🔬"
+  text: "Researching cutting-edge science"
+
 
 # Is this the primary user of the site?
 superuser: true
