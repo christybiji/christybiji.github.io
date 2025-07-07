@@ -15,7 +15,7 @@ main:
    url: projects/
    weight: 30
  - name: CV
-    url: uploads/resume.pdf
+   url: uploads/resume.pdf
    weight: 40
 # --- Commented out sections for later ---
 #  - name: Papers
