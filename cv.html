@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Curriculum Vitae</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cv-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #6b7280;
+            padding-bottom: 20px;
+        }
+
+        .cv-header h1 {
+            font-size: 2.5rem;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .cv-header p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #6b7280;
+            border-bottom: 2px solid #6b7280;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .cv-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .cv-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cv-year {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .cv-institution {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .cv-description {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category h4 {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #6b7280;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .publications {
+            margin-top: 20px;
+        }
+
+        .publication-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .publication-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .publication-authors {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .publication-venue {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+            }
+            
+            .cv-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-header">
+        <h1>Your Name</h1>
+        <p>Academic Title • Institution</p>
+        <p>Email: your.email@institution.edu</p>
+        <p>Phone: +1 (555) 123-4567</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📍</span>
+                <span>City, State, Country</span>
+            </div>
+            <div class="contact-item">
+                <span>🌐</span>
+                <span>yourwebsite.com</span>
+            </div>
+            <div class="contact-item">
+                <span>🔗</span>
+                <span>linkedin.com/in/yourprofile</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <div class="cv-title">Ph.D. in [Field]</div>
+                <div class="cv-year">2020 - Present</div>
+            </div>
+            <div class="cv-institution">University Name</div>
+            <div class="cv-description">
+                Dissertation: "Your Dissertation Title"<br>
+                Advisor: Dr. Advisor Name<br>
+                GPA: 3.9/4.0
+            </div>
+        </div>
+        
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <div class="cv-title">M.S. in [Field]</div>
+                <div class="cv-year">2018 - 2020</div>
+            </div>
+            <div class="cv-institution">University Name</div>
+            <div class="cv-description">
+                Thesis: "Your Thesis Title"<br>
+                GPA: 3.8/4.0
+            </div>
+        </div>
+        
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <div class="cv-title">B.S. in [Field]</div>
+                <div class="cv-year">2014 - 2018</div>
+            </div>
+            <div class="cv-institution">University Name</div>
+            <div class="cv-description">
+                GPA: 3.7/4.0<br>
+                Honors: Magna Cum Laude
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Experience</h2>
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <div class="cv-title">Research Assistant</div>
+                <div class="cv-year">2022 - Present</div>
+            </div>
+            <div class="cv-institution">Institution Name</div>
+            <div class="cv-description">
+                • Contributed to diverse research projects across multiple areas<br>
+                • Adapted methodologies and approaches based on project requirements<br>
+                • Collaborated with interdisciplinary research teams<br>
+                • Supported research activities and data analysis
+            </div>
+        </div>
+        
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <div class="cv-title">Teaching Assistant</div>
+                <div class="cv-year">2020 - 2022</div>
+            </div>
+            <div class="cv-institution">Institution Name</div>
+            <div class="cv-description">
+                • Taught undergraduate courses in [subjects]<br>
+                • Graded assignments and provided feedback<br>
+                • Held office hours and tutoring sessions<br>
+                • Developed course materials and assignments
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Programming Languages</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h4>Tools & Technologies</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">LaTeX</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Jupyter</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h4>Research Methods</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Statistical Analysis</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">Experimental Design</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h4>Languages</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">English (Native)</span>
+                    <span class="skill-tag">Spanish (Fluent)</span>
+                    <span class="skill-tag">French (Intermediate)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="section">
+        <h2 class="section-title">Awards & Honors</h2>
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <div class="cv-title">Outstanding Graduate Student Award</div>
+                <div class="cv-year">2023</div>
+            </div>
+            <div class="cv-institution">Department Name</div>
+        </div>
+        
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <div class="cv-title">Best Paper Award</div>
+                <div class="cv-year">2022</div>
+            </div>
+            <div class="cv-institution">Conference Name</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Professional Memberships</h2>
+        <div class="cv-item">
+            <div class="cv-description">
+                • Association for Computing Machinery (ACM)<br>
+                • Institute of Electrical and Electronics Engineers (IEEE)<br>
+                • Society for Research in [Your Field]
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

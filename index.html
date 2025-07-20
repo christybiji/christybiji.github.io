@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christy Biji | Computational Biologist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: linear-gradient(135deg, #fbfbfc, #0F43BC);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-weight: 400;
+        }
+
+        /* Loading Animation */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background-color: #F5F5DC;
+        }
+
+        #loader {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border: 3px solid transparent;
+            border-top-color: #1f2937;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+            z-index: 1001;
+        }
+
+        #loader:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 3px solid transparent;
+            border-top-color: #8B7355;
+            border-radius: 50%;
+            animation: spin 3s linear infinite;
+        }
+
+        #loader:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px solid transparent;
+            border-top-color: #6b7280;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader-section {
+            position: fixed;
+            top: 0;
+            width: 51%;
+            height: 100%;
+            background: #fbfbfc;
+            z-index: 1000;
+        }
+
+        .loader-section.section-left {
+            left: 0;
+        }
+
+        .loader-section.section-right {
+            right: 0;
+        }
+
+        .loaded .loader-section.section-left {
+            transform: translateX(-100%);
+            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+
+        .loaded .loader-section.section-right {
+            transform: translateX(100%);
+            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+
+        .loaded #loader {
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        .loaded #loader-wrapper {
+            visibility: hidden;
+            transform: translateY(-100%);
+            transition: all 0.3s 1s ease-out;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.6rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d6a4a4;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hero Section with Interactive Particle Background */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('cell-painting-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 3;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .hero-company {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 500px;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+        
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .hero-btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn.primary {
+            background: white;
+            color: #1f2937;
+        }
+        .hero-btn.primary:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .hero-btn.secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        .hero-btn.secondary:hover {
+            background: white;
+            color: #1f2937;
+        }
+
+        /* Profile Section Styles */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            flex-shrink: 0;
+        }
+
+        .profile-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .profile-title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #1f2937;
+            letter-spacing: -0.02em;
+        }
+
+        .profile-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: #0F43BC;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .profile-company {
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            color: #6b7280;
+            font-weight: 400;
+        }
+
+        .profile-description {
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            color: #374151;
+            line-height: 1.5;
+            max-width: 500px;
+            font-weight: 400;
+        }
+
+        .profile-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .profile-contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .profile-contact i {
+            color: #d6a4a4;
+            width: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            /* Gradient icon color */
+        }
+        .social-link i {
+            color: #0F43BC;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link:hover {
+            background: #d6a4a4;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(214, 164, 164, 0.3);
+        }
+
+        .social-link i {
+            font-size: 1.5rem;
+            width: auto;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content Wrapper */
+        .main-content {
+            background: linear-gradient(135deg, #fbfbfc, #0F43BC);
+            position: relative;
+            z-index: 5;
+        }
+
+        .content-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .content-section:nth-child(even) {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #1f2937;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #0F43BC;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        /* CV Section */
+        .cv-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 450px;
+            width: 100%;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .cv-icon {
+            font-size: 3rem;
+            color: #d6a4a4;
+            margin-bottom: 16px;
+        }
+
+        .cv-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #0F43BC;
+        }
+
+        .cv-card p {
+            color: #000000;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cv-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cv-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cv-btn.primary {
+            background: #000000;
+            color: white;
+            border-color: #000000;
+        }
+
+        .cv-btn.primary:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+
+        .cv-btn.secondary {
+            background: transparent;
+            color: #000000;
+            border-color: #000000;
+        }
+
+        .cv-btn.secondary:hover {
+            background: #000000;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Projects Section */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #0F43BC;
+        }
+        .project-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+
+        .project-content p {
+            margin-bottom: 16px;
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .project-award {
+            background: linear-gradient(135deg, #fbfbfc, #0F43BC);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #fbfbfc;
+            color: #1f2937;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid #e5e7eb;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .project-link {
+            color: #0F43BC;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .project-link i {
+            transition: transform 0.3s ease;
+        }
+        .project-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Skills & Courses Section */
+        .skills-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .skills-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1f2937;
+            border-bottom: 2px solid #0F43BC;
+            padding-bottom: 8px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: #fbfbfc;
+            color: #1f2937;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Courses Section */
+        .courses-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .course-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #0F43BC;
+        }
+
+        .course-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .course-icon {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1f2937;
+            font-size: 1.2rem;
+        }
+
+        .university-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 4px;
+        }
+
+        .course-provider {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1f2937;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .course-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .course-date {
+            color: #000000;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .course-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .course-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .course-skill {
+            background: rgba(255, 255, 255, 0.8);
+            color: #374151;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Education Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto 0;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(135deg, #fbfbfc, #0F43BC);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 80px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid #0F43BC;
+            z-index: 2;
+        }
+
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #fbfbfc, #0F43BC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1f2937;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-date {
+            color: #000000;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            background: rgba(26, 156, 184, 0.1);
+            padding: 5px 12px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0F43BC;
+            margin-bottom: 15px;
+        }
+
+        .timeline-details p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-details strong {
+            color: #374151;
+        }
+
+        .thesis-links {
+            margin-top: 15px;
+        }
+
+        .thesis-link {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .thesis-link:hover {
+            color: #1f2937;
+        }
+
+        .thesis-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .thesis-link:hover i {
+            transform: translateX(3px);
+        }
+
+
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8B7355;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .submit-btn {
+            background: #1f2937;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #374151;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-social-link {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-social-link:hover {
+            color: #8B7355;
+        }
+        .footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .profile-section {
+                gap: 40px;
+            }
+            .profile-image img {
+                width: 240px;
+                height: 240px;
+            }
+            .profile-title {
+                font-size: 2.2rem;
+            }
+            .profile-subtitle {
+                font-size: 1.2rem;
+            }
+            .profile-company {
+                font-size: 0.95rem;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 65px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                gap: 2rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            .profile-image img {
+                width: 200px;
+                height: 200px;
+            }
+            .profile-info {
+                text-align: center;
+            }
+            .profile-title {
+                font-size: 2rem;
+            }
+            .profile-subtitle {
+                font-size: 1.1rem;
+            }
+            .profile-company {
+                font-size: 0.9rem;
+            }
+            .profile-description {
+                font-size: 0.9rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .courses-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .course-card {
+                padding: 25px;
+            }
+            .timeline {
+                padding: 20px;
+            }
+            .timeline::before {
+                left: 25px;
+            }
+            .timeline-item {
+                padding-left: 70px;
+                margin-bottom: 40px;
+            }
+            .timeline-marker {
+                width: 50px;
+                height: 50px;
+            }
+            .timeline-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            .timeline-content {
+                padding: 20px;
+            }
+            .timeline-content h3 {
+                font-size: 1.2rem;
+            }
+            .timeline-content h4 {
+                font-size: 1rem;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen Start -->
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <!-- Loading Screen End -->
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="#home">Christy Biji</a></div>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#cv" class="nav-link">CV</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <canvas class="particle-canvas" id="canvas"></canvas>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Profile Section -->
+        <section class="content-section" id="profile">
+            <div class="container">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="profile-picture.png" alt="Christy Biji Profile Picture">
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="profile-title">Christy Biji</h1>
+                        <h2 class="profile-subtitle">Research Associate II</h2>
+                        <h3 class="profile-company">The Broad Institute of MIT and Harvard</h3>
+                        <p class="profile-description">
+                            I am a research scientist with extensive experience in high-throughput screening, iPSC models, and assay development. Currently working at The Broad Institute, I specialize in computational biology, high-content screening, and bioinformatics analysis to drive drug discovery and therapeutic development.
+                        </p>
+                        <div class="profile-contact">
+                            <div class="social-links">
+                                <a href="https://github.com/christybiji" class="social-link" target="_blank" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/christybiji" class="social-link" target="_blank" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="mailto:biji@broadinstitute.org" class="social-link" aria-label="Email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="content-section" id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I am a Research Associate II at The Broad Institute of MIT and Harvard, specializing in high-throughput screening, iPSC models, and computational biology. With a Master's in Chemical and Biomolecular Engineering from Johns Hopkins University, I bring a unique combination of wet-lab expertise and computational skills to drive drug discovery and therapeutic development.</p>
+                        <p>My research focuses on high-content screening, morphological profiling, and bioinformatics analysis. I have extensive experience in automated assay execution, dose-response modeling, and large-scale data processing. Currently, I'm working on pediatric cancer models and developing novel assays for drug discovery.</p>
+                        <p>I am passionate about bridging experimental biology with computational science to uncover novel therapeutic strategies for human disease. My goal is to leverage my full-stack development and machine learning skills to model complex biological systems and advance precision medicine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="content-section" id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">January 2023</div>
+                            <h3>MS in Chemical and Biomolecular Engineering</h3>
+                            <h4>Whiting School of Engineering, Johns Hopkins University</h4>
+                            <div class="timeline-details">
+                                <p><strong>Advisors:</strong> Jaime Spangler, Aaron Wolman, Sakul Ratenalert</p>
+                                <p><strong>Thesis:</strong> Development of a human iPSC derived microglia assay for evaluation of target dependent activation and pharmacological inhibition</p>
+                                <div class="thesis-links">
+                                    <a href="#" class="thesis-link" target="_blank">View Thesis <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">January 2021</div>
+                            <h3>B.Tech Biotechnology</h3>
+                            <h4>Department of Biotechnology, Savitribhai Phule Pune University</h4>
+                            <div class="timeline-details">
+                                <p><strong>Advisor:</strong> Shraddha Kulkurani</p>
+                                <p><strong>Thesis:</strong> Extraction and Application of Hydrophobin</p>
+                                <div class="thesis-links">
+                                    <a href="#" class="thesis-link" target="_blank">View Thesis <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV Section -->
+        <section class="content-section" id="cv">
+            <div class="container">
+                <h2 class="section-title">Resume / CV</h2>
+                <div class="cv-card">
+                    <h3>My Curriculum Vitae</h3>
+                    <p>For a detailed overview of my experience, projects, and skills, please view or download my CV.</p>
+                    <div class="cv-buttons">
+                        <a href="#" class="cv-btn primary" target="_blank">View CV <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="cv-btn secondary" download>Download CV <i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="content-section" id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-list">
+                    <!-- Project Item 1 -->
+                    <div class="project-item">
+                        <div class="project-content">
+                            <h3>BoomExtractor - AI-Powered Scientific Workflow Visualization</h3>
+                            <p class="project-award">🏆 Awarded BroadHacks Best Overall Project and People's Choice Award</p>
+                            <p>Conceived and led a project to accelerate research comprehension by using AI to automatically diagram complex experimental workflows from scientific papers. Guided technical development to ensure AI-driven methodology dissection was accurate and scientifically relevant.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Google Gemini AI</span><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">React Flow</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">GitHub Repo <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Item 2 -->
+                    <div class="project-item">
+                        <div class="project-content">
+                            <h3>MIT-IDSS-Recommendation-System</h3>
+                            <p>Developed an end-to-end recommendation system using collaborative filtering and matrix factorization (SVD) in Python. Designed scalable preprocessing for sparse user-item data and evaluated models using RMSE, Precision@k, Recall@k, and F1-Score. Optimized SVD with GridSearchCV for strong predictive accuracy.</p>
+                             <div class="project-tech">
+                                <span class="tech-tag">Python</span><span class="tech-tag">Surprise</span><span class="tech-tag">Pandas</span><span class="tech-tag">SVD</span><span class="tech-tag">GridSearchCV</span><span class="tech-tag">Recommender Systems</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/christybiji/MIT-IDSS-Recommendation-System" class="project-link" target="_blank">GitHub Repo <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Item 3 -->
+                    <div class="project-item">
+                        <div class="project-content">
+                            <h3>MIT-IDSS-Lead-Scoring-Model</h3>
+                            <p>Built a machine learning pipeline in Python to predict customer conversion for an EdTech case study. Engineered features, applied standardized preprocessing (one-hot encoding, scaling), and evaluated classification models. Final model optimized via GridSearchCV for precision-recall performance.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Pandas</span><span class="tech-tag">Decision Trees</span><span class="tech-tag">Random Forests</span><span class="tech-tag">Logistic Regression</span>
+                            </div>
+                           <div class="project-links">
+                                <a href="https://github.com/christybiji/MIT-IDSS-Lead-Scoring-Model" class="project-link" target="_blank">GitHub Repo <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Item 4 -->
+                    <div class="project-item">
+                        <div class="project-content">
+                            <h3>MIT-IDSS-Customer-Personality-Segmentation</h3>
+                            <p>Built an unsupervised learning pipeline in Python to identify distinct groups from demographic and transactional data. Performed feature engineering and cluster optimization using the elbow method and silhouette score. Applied dimensionality reduction techniques for effective clustering.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span><span class="tech-tag">Clustering</span><span class="tech-tag">Dimensionality Reduction</span><span class="tech-tag">EDA</span><span class="tech-tag">Feature Engineering</span><span class="tech-tag">Unsupervised Learning</span>
+                            </div>
+                                                       <div class="project-links">
+                                <a href="https://github.com/christybiji/MIT-IDSS-Customer-Segmentation" class="project-link" target="_blank">GitHub Repo <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Item 5 -->
+                    <div class="project-item">
+                        <div class="project-content">
+                            <h3>Engineering Lungs with mtDNA-Edited iPSCs</h3>
+                            <p>Proposed a novel therapeutic strategy to mitigate transplant rejection by bioengineering lungs from decellularized scaffolds repopulated with autologous iPSCs that were gene-edited via CRISPR to remove immunogenic mtDNA mutations. Designed an experimental plan integrating next-generation sequencing (NGS) for mutation detection, bioinformatics tools (CRISPy, Benchling) for guide RNA design, and statistical analysis (ANOVA, t-test) to validate editing efficacy.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">CRISPR</span><span class="tech-tag">iPSCs</span><span class="tech-tag">NGS</span><span class="tech-tag">Bioinformatics</span><span class="tech-tag">Statistical Analysis</span><span class="tech-tag">Tissue Engineering</span>
+                            </div>
+                           <div class="project-links">
+                                <a href="#" class="project-link">View Report <i class="fas fa-file-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Courses Section -->
+        <section class="content-section" id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-content">
+                    <div class="skills-grid">
+                        <div class="skills-category">
+                            <h3>Bioinformatics & Data Analysis</h3>
+                            <div class="skills-list">
+                                <span class="skill-item">High-content/HTS screening</span><span class="skill-item">Morphological profiling</span><span class="skill-item">Dose-response modeling (IC50/EC50)</span><span class="skill-item">Image-based quantification</span><span class="skill-item">Python</span><span class="skill-item">Bioinformatics tools</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h3>High-Throughput Screening & Automation</h3>
+                            <div class="skills-list">
+                                <span class="skill-item">Automated assay execution</span><span class="skill-item">Echo, Biotek, Combi systems</span><span class="skill-item">Large-scale dose-response profiling</span><span class="skill-item">Data processing & QC</span><span class="skill-item">GeneData Screener</span><span class="skill-item">Freezerpro</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Wet-Lab & Cell Culture</h3>
+                            <div class="skills-list">
+                                <span class="skill-item">iPSC-derived microglia</span><span class="skill-item">CHO/U2OS/THP-1 culture</span><span class="skill-item">Primary PBMC culture</span><span class="skill-item">β-arrestin assays</span><span class="skill-item">Inflammasome assays</span><span class="skill-item">ELISA/ICC/IF</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Machine Learning & Software</h3>
+                            <div class="skills-list">
+                                <span class="skill-item">Full-Stack Development</span><span class="skill-item">FastAPI</span><span class="skill-item">React</span><span class="skill-item">TypeScript</span><span class="skill-item">Google Gemini AI</span><span class="skill-item">Scikit-learn</span><span class="skill-item">Pandas</span><span class="skill-item">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Online Courses Section -->
+        <section class="content-section" id="courses">
+            <div class="container">
+                <h2 class="section-title">Coursework & Certifications</h2>
+                <div class="courses-list">
+
+
+                    <!-- Course Item 1 -->
+                    <div class="course-item">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <img src="mit-idss-logo.png" alt="MIT IDSS Logo" class="university-logo">
+                            </div>
+                            <div class="course-provider">MIT IDSS</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Data Science and Machine Learning: Making Data-Driven Decisions</h3>
+                            <p class="course-date">January 2025</p>
+                            <p class="course-description">
+                                Comprehensive program covering data science fundamentals, machine learning algorithms, and statistical analysis for making informed data-driven decisions in research and industry applications.
+                            </p>
+                            <div class="course-skills">
+                                <span class="course-skill">Data Science</span>
+                                <span class="course-skill">Machine Learning</span>
+                                <span class="course-skill">Statistical Analysis</span>
+                            </div>
+                            <div class="course-links">
+                                <a href="#" class="course-link" target="_blank">See certificate <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Item 2 -->
+                    <div class="course-item">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <img src="harvard-extension-logo.png" alt="Harvard Extension Logo" class="university-logo">
+                            </div>
+                            <div class="course-provider">Harvard Extension</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Mathematical Statistics (Graduate-Level)</h3>
+                            <p class="course-date">December 2024</p>
+                            <p class="course-description">
+                                Advanced graduate-level coursework in mathematical statistics, covering theoretical foundations, probability theory, and statistical inference methods. Grade: A.
+                            </p>
+                            <div class="course-skills">
+                                <span class="course-skill">Mathematical Statistics</span>
+                                <span class="course-skill">Probability Theory</span>
+                                <span class="course-skill">Statistical Inference</span>
+                                <span class="course-skill">Graduate Level</span>
+                            </div>
+                            <div class="course-links">
+                                <a href="#" class="course-link" target="_blank">See certificate <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Item 3 -->
+                    <div class="course-item">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <img src="coursera-logo.png" alt="Coursera Logo" class="university-logo">
+                            </div>
+                            <div class="course-provider">Johns Hopkins</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Introduction to the Biology of Cancer</h3>
+                            <p class="course-date">July 2020</p>
+                            <p class="course-description">
+                                Comprehensive course covering the fundamental principles of cancer biology, including molecular mechanisms, genetic basis, and therapeutic approaches to cancer treatment.
+                            </p>
+                            <div class="course-skills">
+                                <span class="course-skill">Cancer Biology</span>
+                                <span class="course-skill">Molecular Biology</span>
+                                <span class="course-skill">Genetics</span>
+                                <span class="course-skill">Therapeutics</span>
+                            </div>
+                            <div class="course-links">
+                                <a href="#" class="course-link" target="_blank">See certificate <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Item 4 -->
+                    <div class="course-item">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <img src="coursera-logo.png" alt="Coursera Logo" class="university-logo">
+                            </div>
+                            <div class="course-provider">University of Maryland</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Genes and the Human Condition (From Behavior to Biotechnology)</h3>
+                            <p class="course-date">June 2020</p>
+                            <p class="course-description">
+                                Explored the relationship between genes and human behavior, covering topics from basic genetics to advanced biotechnology applications and their impact on human health.
+                            </p>
+                            <div class="course-skills">
+                                <span class="course-skill">Genetics</span>
+                                <span class="course-skill">Human Behavior</span>
+                                <span class="course-skill">Biotechnology</span>
+                                <span class="course-skill">Human Health</span>
+                            </div>
+                            <div class="course-links">
+                                <a href="#" class="course-link" target="_blank">See certificate <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Item 5 -->
+                    <div class="course-item">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <img src="coursera-logo.png" alt="Coursera Logo" class="university-logo">
+                            </div>
+                            <div class="course-provider">Technical University of Denmark</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Antimicrobial resistance - theory and methods</h3>
+                            <p class="course-date">June 2020</p>
+                            <p class="course-description">
+                                Comprehensive course covering the theoretical foundations and practical methods for understanding and combating antimicrobial resistance, including laboratory techniques and analytical approaches.
+                            </p>
+                            <div class="course-skills">
+                                <span class="course-skill">Antimicrobial Resistance</span>
+                                <span class="course-skill">Microbiology</span>
+                                <span class="course-skill">Laboratory Methods</span>
+                                <span class="course-skill">Public Health</span>
+                            </div>
+                            <div class="course-links">
+                                <a href="#" class="course-link" target="_blank">See certificate <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Contact Section -->
+        <section class="content-section" id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="url" name="linkedin" placeholder="Your LinkedIn URL (optional)">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social-links">
+                <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="footer-social-link" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" class="footer-social-link" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Christy Biji. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Interactive Particle Logo by Tamino Martinius (https://codepen.io/TaminoMartinius/pen/oNvPNO) ---
+        (function() {
+            const canvas = document.getElementById('canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+            let particles = [];
+            let textPixels = [];
+            let mouse = { x: width / 2, y: height / 2, radius: 100 };
+
+            // Multi-language welcome messages
+            const welcomeMessages = [
+                "Hello, welcome!",
+                "¡Hola, bienvenido!",
+                "Bonjour, bienvenue!",
+                "Hallo, willkommen!",
+                "Ciao, benvenuto!",
+                "Olá, bem-vindo!",
+                "こんにちは、ようこそ！",
+                "안녕하세요, 환영합니다!",
+                "你好，欢迎！",
+                "नमस्ते, स्वागत है!"
+            ];
+            
+            let currentTextIndex = 0;
+            let text = welcomeMessages[0];
+
+            function init() {
+                updateCanvasSize();
+                getTextPixels();
+                createParticles();
+                animate();
+                startLanguageRotation();
+            }
+
+            function startLanguageRotation() {
+                setInterval(() => {
+                    currentTextIndex = (currentTextIndex + 1) % welcomeMessages.length;
+                    text = welcomeMessages[currentTextIndex];
+                    getTextPixels();
+                    createParticles();
+                }, 10000); // Change language every 10 seconds
+            }
+
+            function updateCanvasSize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            function getTextPixels() {
+                const tempCanvas = document.createElement('canvas');
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCanvas.width = width;
+                tempCanvas.height = height;
+
+                const fontSize = Math.min(width / 8, 120); // Adjusted font size for longer text
+                tempCtx.font = `bold ${fontSize}px Inter, sans-serif`;
+                tempCtx.textAlign = 'center';
+                tempCtx.textBaseline = 'middle';
+                tempCtx.fillStyle = '#fff';
+                tempCtx.fillText(text, width / 2, height / 2);
+
+                const imageData = tempCtx.getImageData(0, 0, width, height).data;
+                textPixels = [];
+                for (let y = 0; y < height; y += 4) {
+                    for (let x = 0; x < width; x += 4) {
+                        if (imageData[(x + y * width) * 4 + 3] > 128) {
+                            textPixels.push({ x: x, y: y });
+                        }
+                    }
+                }
+            }
+
+            function createParticles() {
+                particles = [];
+                for (let i = 0; i < textPixels.length; i++) {
+                    const x = Math.random() * width;
+                    const y = Math.random() * height;
+                    particles.push({
+                        x: x,
+                        y: y,
+                        vx: 0,
+                        vy: 0,
+                        originX: textPixels[i].x,
+                        originY: textPixels[i].y,
+                        size: 1.5,
+                        color: 'rgba(255, 255, 255, 0.8)'
+                    });
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    let forceDirectionX = 0;
+                    let forceDirectionY = 0;
+                    let force = 0;
+
+                    if (dist < mouse.radius) {
+                        force = (mouse.radius - dist) / mouse.radius;
+                        forceDirectionX = dx / dist;
+                        forceDirectionY = dy / dist;
+                    }
+
+                    const returnForceX = p.originX - p.x;
+                    const returnForceY = p.originY - p.y;
+
+                    p.vx += returnForceX * 0.01 - forceDirectionX * force * 2;
+                    p.vy += returnForceY * 0.01 - forceDirectionY * force * 2;
+
+                    p.vx *= 0.95;
+                    p.vy *= 0.95;
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', () => {
+                updateCanvasSize();
+                getTextPixels();
+                createParticles();
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            init();
+        })();
+
+        // --- Website Functionality ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger Menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Navbar Scroll Effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Contact Form Submission
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitBtn = this.querySelector('.submit-btn');
+                submitBtn.textContent = 'Sending...';
+                setTimeout(() => {
+                    submitBtn.textContent = 'Message Sent!';
+                    submitBtn.style.backgroundColor = '#4CAF50';
+                    this.reset();
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Send Message';
+                        submitBtn.style.backgroundColor = '#1f2937';
+                    }, 3000);
+                }, 1000);
+            });
+        });
+        
+        // --- Loader Removal Script ---
+        window.addEventListener('load', function () {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html> 
