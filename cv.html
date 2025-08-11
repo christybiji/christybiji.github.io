@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Curriculum Vitae</title>
+    <title>Christy Biji - CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,337 +14,569 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: white;
-            padding: 40px;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .cv-container {
             max-width: 800px;
             margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .cv-header {
+            background: linear-gradient(135deg, #0F43BC, #1f2937);
+            color: white;
+            padding: 40px;
             text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 3px solid #6b7280;
-            padding-bottom: 20px;
         }
 
-        .cv-header h1 {
+        .cv-name {
             font-size: 2.5rem;
-            color: #6b7280;
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
-        .cv-header p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 5px;
+        .cv-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
         }
 
-        .contact-info {
+        .cv-contact {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
             flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .contact-item {
+        .cv-contact-item {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 0.9rem;
         }
 
-        .section {
+        .cv-contact-item i {
+            color: #d6a4a4;
+        }
+
+        .cv-body {
+            padding: 40px;
+        }
+
+        .cv-section {
             margin-bottom: 30px;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            color: #6b7280;
-            border-bottom: 2px solid #6b7280;
+        .cv-section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0F43BC;
+            border-bottom: 2px solid #0F43BC;
             padding-bottom: 8px;
             margin-bottom: 20px;
         }
 
         .cv-item {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding-left: 20px;
+            border-left: 3px solid #e5e7eb;
         }
 
         .cv-item-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-        }
-
-        .cv-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .cv-year {
-            font-size: 1rem;
-            color: #6b7280;
-            font-weight: 600;
-        }
-
-        .cv-institution {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .cv-description {
-            font-size: 0.9rem;
-            color: #555;
-            line-height: 1.5;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category {
-            margin-bottom: 15px;
-        }
-
-        .skill-category h4 {
-            font-size: 1.1rem;
-            color: #6b7280;
+            align-items: flex-start;
             margin-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-        }
-
-        .skill-tags {
-            display: flex;
             flex-wrap: wrap;
-            gap: 8px;
         }
 
-        .skill-tag {
-            background: #6b7280;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
+        .cv-item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .cv-item-date {
+            font-size: 0.9rem;
+            color: #6b7280;
             font-weight: 500;
         }
 
-        .publications {
-            margin-top: 20px;
+        .cv-item-subtitle {
+            font-size: 1rem;
+            color: #0F43BC;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
-        .publication-item {
-            margin-bottom: 15px;
-            padding-left: 20px;
+        .cv-item-location {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 10px;
         }
 
-        .publication-title {
-            font-weight: bold;
+        .cv-item-description {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .cv-item-description ul {
+            margin-left: 20px;
+        }
+
+        .cv-item-description li {
             margin-bottom: 5px;
         }
 
-        .publication-authors {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 5px;
+        .cv-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .publication-venue {
-            color: #555;
+        .cv-skill-category h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .cv-skill-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .cv-skill-list li {
+            margin-bottom: 5px;
+            color: #4b5563;
             font-size: 0.9rem;
         }
 
-        @media print {
-            body {
-                padding: 20px;
+        .cv-project {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #0F43BC;
+        }
+
+        .cv-project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .cv-project-course {
+            font-size: 0.9rem;
+            color: #0F43BC;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .cv-project-description {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .cv-award {
+            background: linear-gradient(135deg, #fbfbfc, #0F43BC);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .cv-back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #0F43BC;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .cv-back-button:hover {
+            background: #1f2937;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                margin: 10px;
+                border-radius: 0;
             }
             
-            .cv-header h1 {
+            .cv-header {
+                padding: 30px 20px;
+            }
+            
+            .cv-body {
+                padding: 30px 20px;
+            }
+            
+            .cv-name {
                 font-size: 2rem;
             }
             
-            .section-title {
-                font-size: 1.3rem;
+            .cv-contact {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .cv-item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cv-header">
-        <h1>Your Name</h1>
-        <p>Academic Title • Institution</p>
-        <p>Email: your.email@institution.edu</p>
-        <p>Phone: +1 (555) 123-4567</p>
-        <div class="contact-info">
-            <div class="contact-item">
-                <span>📍</span>
-                <span>City, State, Country</span>
-            </div>
-            <div class="contact-item">
-                <span>🌐</span>
-                <span>yourwebsite.com</span>
-            </div>
-            <div class="contact-item">
-                <span>🔗</span>
-                <span>linkedin.com/in/yourprofile</span>
-            </div>
-        </div>
-    </div>
+    <a href="index.html" class="cv-back-button">
+        <i class="fas fa-arrow-left"></i> Back to Website
+    </a>
 
-    <div class="section">
-        <h2 class="section-title">Education</h2>
-        <div class="cv-item">
-            <div class="cv-item-header">
-                <div class="cv-title">Ph.D. in [Field]</div>
-                <div class="cv-year">2020 - Present</div>
-            </div>
-            <div class="cv-institution">University Name</div>
-            <div class="cv-description">
-                Dissertation: "Your Dissertation Title"<br>
-                Advisor: Dr. Advisor Name<br>
-                GPA: 3.9/4.0
-            </div>
-        </div>
-        
-        <div class="cv-item">
-            <div class="cv-item-header">
-                <div class="cv-title">M.S. in [Field]</div>
-                <div class="cv-year">2018 - 2020</div>
-            </div>
-            <div class="cv-institution">University Name</div>
-            <div class="cv-description">
-                Thesis: "Your Thesis Title"<br>
-                GPA: 3.8/4.0
-            </div>
-        </div>
-        
-        <div class="cv-item">
-            <div class="cv-item-header">
-                <div class="cv-title">B.S. in [Field]</div>
-                <div class="cv-year">2014 - 2018</div>
-            </div>
-            <div class="cv-institution">University Name</div>
-            <div class="cv-description">
-                GPA: 3.7/4.0<br>
-                Honors: Magna Cum Laude
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Experience</h2>
-        <div class="cv-item">
-            <div class="cv-item-header">
-                <div class="cv-title">Research Assistant</div>
-                <div class="cv-year">2022 - Present</div>
-            </div>
-            <div class="cv-institution">Institution Name</div>
-            <div class="cv-description">
-                • Contributed to diverse research projects across multiple areas<br>
-                • Adapted methodologies and approaches based on project requirements<br>
-                • Collaborated with interdisciplinary research teams<br>
-                • Supported research activities and data analysis
-            </div>
-        </div>
-        
-        <div class="cv-item">
-            <div class="cv-item-header">
-                <div class="cv-title">Teaching Assistant</div>
-                <div class="cv-year">2020 - 2022</div>
-            </div>
-            <div class="cv-institution">Institution Name</div>
-            <div class="cv-description">
-                • Taught undergraduate courses in [subjects]<br>
-                • Graded assignments and provided feedback<br>
-                • Held office hours and tutoring sessions<br>
-                • Developed course materials and assignments
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h4>Programming Languages</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">R</span>
-                    <span class="skill-tag">MATLAB</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">SQL</span>
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="cv-header">
+            <h1 class="cv-name">Christy Biji</h1>
+            <p class="cv-title">Research Associate II | The Broad Institute of MIT and Harvard</p>
+            <div class="cv-contact">
+                <div class="cv-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Boston, MA</span>
                 </div>
-            </div>
-            
-            <div class="skill-category">
-                <h4>Tools & Technologies</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">LaTeX</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Jupyter</span>
+                <div class="cv-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>biji@broadinstitute.org</span>
                 </div>
-            </div>
-            
-            <div class="skill-category">
-                <h4>Research Methods</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Statistical Analysis</span>
-                    <span class="skill-tag">Machine Learning</span>
-                    <span class="skill-tag">Data Visualization</span>
-                    <span class="skill-tag">Experimental Design</span>
+                <div class="cv-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>443-320-3027</span>
                 </div>
-            </div>
-            
-            <div class="skill-category">
-                <h4>Languages</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">English (Native)</span>
-                    <span class="skill-tag">Spanish (Fluent)</span>
-                    <span class="skill-tag">French (Intermediate)</span>
+                <div class="cv-contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>yourwebsite.com</span>
+                </div>
+                <div class="cv-contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>linkedin</span>
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- Body -->
+        <div class="cv-body">
+            <!-- Education -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Education</h2>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">MS in Chemical and Biomolecular Engineering</h3>
+                        <span class="cv-item-date">Jan 2023</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Whiting School of Engineering, Johns Hopkins University</h4>
+                    <div class="cv-item-description">
+                        <ul>
+                            <li><strong>Advisors:</strong> Jaime Spangler, Aaron Wolman</li>
+                            <li><strong>Thesis:</strong> Development of a human iPSC derived microglia assay for evaluation of target dependent activation and pharmacological inhibition</li>
+                        </ul>
+                    </div>
+                </div>
 
-
-    <div class="section">
-        <h2 class="section-title">Awards & Honors</h2>
-        <div class="cv-item">
-            <div class="cv-item-header">
-                <div class="cv-title">Outstanding Graduate Student Award</div>
-                <div class="cv-year">2023</div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">B.Tech Biotechnology</h3>
+                        <span class="cv-item-date">Oct 2020</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Department of Biotechnology, Savitribhai Phule Pune University (Sinhgad College of Engineering)</h4>
+                    <div class="cv-item-description">
+                        <ul>
+                            <li><strong>Advisor:</strong> Shraddha Kulkurani</li>
+                            <li><strong>Thesis:</strong> Extraction and Application of Hydrophobin</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="cv-institution">Department Name</div>
-        </div>
-        
-        <div class="cv-item">
-            <div class="cv-item-header">
-                <div class="cv-title">Best Paper Award</div>
-                <div class="cv-year">2022</div>
-            </div>
-            <div class="cv-institution">Conference Name</div>
-        </div>
-    </div>
 
-    <div class="section">
-        <h2 class="section-title">Professional Memberships</h2>
-        <div class="cv-item">
-            <div class="cv-description">
-                • Association for Computing Machinery (ACM)<br>
-                • Institute of Electrical and Electronics Engineers (IEEE)<br>
-                • Society for Research in [Your Field]
+            <!-- Research Experience -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Research Experience</h2>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Research Associate II</h3>
+                        <span class="cv-item-date">April 2023 – Present</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Center for the Development of Therapeutics (CDoT), The Broad Institute of MIT & Harvard</h4>
+                    <div class="cv-item-location">Cambridge, MA</div>
+                    <div class="cv-item-description">
+                        <ul>
+                            <li>Executing a high-throughput Cell Painting screen using an automated pipeline with Opera Phenix, generating a large-scale morphological data set to identify novel, non-cytotoxic phenotypes in Pediatric Cancer. A collaboration with Dr. Gregory Way - University of Colorado.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Master Thesis Researcher</h3>
+                        <span class="cv-item-date">June 2022 – Jan 2023</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Discovery Neuroscience, Merck</h4>
+                    <div class="cv-item-location">Boston, MA</div>
+                    <div class="cv-item-description">
+                        <ul>
+                            <li>Led a project to establish iPSC-derived microglia platform to model CNS-specific NLRP3 inflammasome activation in neurodegenerative diseases.</li>
+                            <li>Characterized the dose-dependent NLRP3 inhibition with the small molecule MCC950, establishing IC50 values in CNS (iPSC-microglia) and peripheral (THP-1, PBMC) cell lines.</li>
+                            <li>Quantified inflammasome activation by measuring IL-1β secretion via immunoassay and visualized ASC speck assembly using immunocytochemistry.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Graduate Researcher</h3>
+                        <span class="cv-item-date">Nov 2021 – May 2022</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">The Brady Urological Institute at Johns Hopkins</h4>
+                    <div class="cv-item-location">Baltimore, MD</div>
+                    <div class="cv-item-description">
+                        <ul>
+                            <li>Investigated host immune response to novel bioengineered bladder tissues by optimizing 3D gelatin scaffold fabrication via systematic physicochemical characterization.</li>
+                            <li>Quantified cellular infiltration and spatial distribution in 3D constructs through quantitative analysis of histology and immunofluorescence imaging data.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Graduate Biospecimen Manager</h3>
+                        <span class="cv-item-date">Nov 2021 – May 2022</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Bayview Medical Centre at Johns Hopkins</h4>
+                    <div class="cv-item-location">Baltimore, MD</div>
+                    <div class="cv-item-description">
+                        <ul>
+                            <li>Managed a clinical biorepository for neurological research, leveraging a LIMS (Freezerpro) to ensure the integrity of key samples (CSF, plasma, serum) and enhance data quality.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Undergraduate Researcher</h3>
+                        <span class="cv-item-date">May 2019 – May 2020</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">University of Pune</h4>
+                    <div class="cv-item-location">Pune, IN</div>
+                    <div class="cv-item-description">
+                        <ul>
+                            <li>Developed a data-driven framework to optimize the end-to-end production of Hydrophobin protein, systematically improving both expression yield and final purity.</li>
+                            <li>Engineered upstream fermentation conditions using a custom quantitative assay and designed multi-modal downstream purification cascades (chromatography, filtration).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computational & Quantitative Skills -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Computational & Quantitative Skills</h2>
+                <div class="cv-skills-grid">
+                    <div class="cv-skill-category">
+                        <h4>Machine Learning & Statistical Modeling</h4>
+                        <ul class="cv-skill-list">
+                            <li>Classification (Logistic Regression, Random Forests)</li>
+                            <li>Clustering (k-means, Hierarchical)</li>
+                            <li>Dimensionality reduction (PCA, UMAP)</li>
+                            <li>Statistical inference and hypothesis testing</li>
+                        </ul>
+                    </div>
+                    <div class="cv-skill-category">
+                        <h4>Bioimage & High-Content Data Analysis</h4>
+                        <ul class="cv-skill-list">
+                            <li>End-to-end experience in high-content screening workflows</li>
+                            <li>Quantitative morphological profiling (CellProfiler, ImageJ, Cellpose)</li>
+                            <li>Large-scale data analysis (Genedata Screener, LIMS)</li>
+                        </ul>
+                    </div>
+                    <div class="cv-skill-category">
+                        <h4>Programming & Software</h4>
+                        <ul class="cv-skill-list">
+                            <li>Python (Pandas, Scikit-learn, Matplotlib)</li>
+                            <li>R (Tidyverse)</li>
+                            <li>MATLAB, Java</li>
+                            <li>Git version control, Terra cloud computing</li>
+                        </ul>
+                    </div>
+                    <div class="cv-skill-category">
+                        <h4>Experimental Biology Foundation</h4>
+                        <ul class="cv-skill-list">
+                            <li>Mammalian cell culture, Cell Painting, ELISA</li>
+                            <li>High Throughput multiplexed screening in 384-well format</li>
+                            <li>Dose-response profiling, Immunocytochemistry (ICC)</li>
+                            <li>BSL2+/BSL2 and automated screening instrumentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Projects</h2>
+                
+                <div class="cv-project">
+                    <h3 class="cv-project-title">BoomExtractor - AI-Powered Scientific Workflow Visualization</h3>
+                    <div class="cv-award">🏆 Awarded BroadHacks Best Overall Project and People's Choice Award</div>
+                    <p class="cv-project-description">Led the end-to-end development of an AI-driven tool to accelerate research comprehension by automatically generating scientifically-validated experimental workflow diagrams from papers using Python, Gemini AI, and React.</p>
+                </div>
+
+                <div class="cv-project">
+                    <h3 class="cv-project-title">MIT-IDSS-Recommendation-System</h3>
+                    <div class="cv-project-course">Course: Recommendation Systems</div>
+                    <p class="cv-project-description">Engineered an end-to-end recommendation system by benchmarking collaborative filtering models (User-User, SVD) and optimizing the top-performing SVD model with GridSearchCV to achieve a final RMSE of 0.88.</p>
+                </div>
+
+                <div class="cv-project">
+                    <h3 class="cv-project-title">MIT-IDSS-Lead-Scoring-Model</h3>
+                    <div class="cv-project-course">Course: Classification and Hypothesis Testing</div>
+                    <p class="cv-project-description">Developed an end-to-end lead scoring pipeline by tuning multiple classifiers (Random Forest, Decision Tree) with GridSearchCV to optimize for recall (>82%), enabling data-driven prioritization of high-potential sales leads.</p>
+                </div>
+
+                <div class="cv-project">
+                    <h3 class="cv-project-title">MIT IDSS Project: Customer Personality Segmentation</h3>
+                    <div class="cv-project-course">Course: Making Sense of Unstructured Data</div>
+                    <p class="cv-project-description">Applied unsupervised learning (K-Means, PCA) to segment a retail customer database, identifying and profiling distinct high-value and low-value personas to inform targeted marketing and retention strategies.</p>
+                </div>
+
+                <div class="cv-project">
+                    <h3 class="cv-project-title">Knockout NEU3 gene target with CRISPR-Cas9</h3>
+                    <div class="cv-project-course">Tissue Engineering Lab</div>
+                    <p class="cv-project-description">Engineered a CRISPR-Cas9 gene-editing tool to knock out the sialidase Neu3 in CHO cells, a strategy aimed at increasing the sialylation and therapeutic half-life of recombinant hIFNγ.</p>
+                </div>
+
+                <div class="cv-project">
+                    <h3 class="cv-project-title">Engineering Lungs with mtDNA-Edited iPSCs</h3>
+                    <div class="cv-project-course">Tissue Engineering Group Project</div>
+                    <p class="cv-project-description">Proposed a novel framework for lung bioengineering combining decellularized scaffolds with autologous, mtDNA-edited iPSCs to prevent transplant rejection and expand the donor organ pool.</p>
+                </div>
+            </div>
+
+            <!-- Poster Presentation -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Poster Presentation</h2>
+                <div class="cv-project">
+                    <h3 class="cv-project-title">BoomExtractor 2</h3>
+                    <div class="cv-project-course">Broad Hackathon 2025</div>
+                    <p class="cv-project-description">Presented research findings and technical implementation of the AI-powered scientific workflow visualization tool at the Broad Hackathon 2025, showcasing the innovative approach to accelerating research comprehension through automated workflow generation.</p>
+                </div>
+            </div>
+
+            <!-- Leadership and Services -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Leadership and Services</h2>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Treasurer, Women at Broad</h3>
+                        <span class="cv-item-date">Sep 2025</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">The Broad Institute</h4>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Spot Award</h3>
+                        <span class="cv-item-date">May 2025</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">CDoT, The Broad Institute of MIT and Harvard</h4>
+                    <div class="cv-item-description">
+                        <p>Awarded for excellence in the service of the department.</p>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Graduate Student Liaison Committee</h3>
+                        <span class="cv-item-date">May 2021</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Whiting School of Engineering - Johns Hopkins University</h4>
+                </div>
+            </div>
+
+            <!-- Courses and Certifications -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Courses and Certifications</h2>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Image Data Analysis Bootcamp</h3>
+                        <span class="cv-item-date">Aug 2025</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Cimini lab, The Broad Institute</h4>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Data Science and Machine Learning: Making Data-Driven Decisions</h3>
+                        <span class="cv-item-date">Jan 2025</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">MIT Institute for Data, Systems, and Society (IDSS)</h4>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Mathematical Statistics (Graduate-Level Coursework)</h3>
+                        <span class="cv-item-date">Dec 2024</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Harvard University Extension School</h4>
+                    <div class="cv-item-description">
+                        <p>Grade: A</p>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Introduction to the Biology of Cancer</h3>
+                        <span class="cv-item-date">July 2020</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Johns Hopkins University, Coursera</h4>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Genes and the Human Condition (From Behavior to Biotechnology)</h3>
+                        <span class="cv-item-date">June 2020</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">University of Maryland, Coursera</h4>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3 class="cv-item-title">Antimicrobial resistance - theory and methods</h3>
+                        <span class="cv-item-date">June 2020</span>
+                    </div>
+                    <h4 class="cv-item-subtitle">Technical University of Denmark, Coursera</h4>
+                </div>
             </div>
         </div>
     </div>
