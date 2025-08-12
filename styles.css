@@ -111,11 +111,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./eukaryotic-cell-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('eukaryotic-cell-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     overflow: hidden;
+    min-height: 400px;
 }
 
 #particles-js {
