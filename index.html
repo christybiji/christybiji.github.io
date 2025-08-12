@@ -1,558 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us" dir="ltr" data-wc-theme-default="system" class="dark" style="color-scheme: dark; scroll-padding-top: 0px; --navbar-height: 0px;">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christy Biji | Research Associate II | The Broad Institute</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Academic Website">
+    <meta name="author" content="Academic Professional">
+    <meta name="description" content="Academic professional website showcasing research, experience, and achievements">
+    <link rel="stylesheet" href="css/themes/blue.min.css">
+    <link href="css/wc.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="media/icon.png">
+    <link rel="apple-touch-icon" type="image/png" href="media/icon.png">
+    <meta property="twitter:card" content="summary">
+    <meta property="og:site_name" content="Academic Website">
+    <meta property="og:title" content="Home | Academic Professional">
+    <meta property="og:description" content="Academic professional website showcasing research, experience, and achievements">
+    <meta property="og:image" content="media/icon.png">
+    <title>Home | Academic Professional</title>
+    <style>
+        @font-face {
+            font-family: inter var;
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url(css/font/Inter.var.woff2) format(woff2)
+        }
+    </style>
 </head>
-<body id="particle-slider">
-    <div class="slides">
-        <div id="first-slide" class="slide" data-src="eukaryotic-cell-bg.jpg">
-            <div class="slide-content">
-                <div class="welcome-text">
-                    <h1>Hello Welcome</h1>
-                    <p>in different languages</p>
-                </div>
+<body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    
+    <!-- Theme Toggle -->
+    <div class="page-header">
+        <div class="absolute right-0 top-0 m-3 bg-primary-100 dark:bg-primary-700 rounded-full p-2 z-10">
+            <div class="h-[24px] w-[24px]">
+                <button class="theme-toggle" accesskey="t" title="" aria-label="Display preferences" data-theme="dark">
+                    <svg id="moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dark:hidden">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+                    <svg id="sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dark:block [&:not(dark)]:hidden">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
         </div>
     </div>
-    <canvas class="draw"></canvas>
-    
-    <!-- dribbble - twitter -->
-    <a class="dribbble" href="https://dribbble.com/TaminoMartinius" target="_blank">
-      <img src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" alt=""/>
-    </a>
-    <a class="twitter" target="_top" href="https://twitter.com/TaminoMartinius">
-      <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
-        <path d="M67.812 16.141a26.246 26.246 0 0 1-7.519 2.06 13.134 13.134 0 0 0 5.756-7.244 26.127 26.127 0 0 1-8.313 3.176A13.075 13.075 0 0 0 48.182 10c-7.229 0-13.092 5.861-13.092 13.093 0 1.026.118 2.021.338 2.981-10.885-.548-20.528-5.757-26.987-13.679a13.048 13.048 0 0 0-1.771 6.581c0 4.542 2.312 8.551 5.824 10.898a13.048 13.048 0 0 1-5.93-1.638c-.002.055-.002.11-.002.162 0 6.345 4.513 11.638 10.504 12.84a13.177 13.177 0 0 1-3.449.457c-.846 0-1.667-.078-2.465-.231 1.667 5.2 6.499 8.986 12.23 9.09a26.276 26.276 0 0 1-16.26 5.606A26.21 26.21 0 0 1 4 55.976a37.036 37.036 0 0 0 20.067 5.882c24.083 0 37.251-19.949 37.251-37.249 0-.566-.014-1.134-.039-1.694a26.597 26.597 0 0 0 6.533-6.774z"/>
-      </svg>    
-    </a>
-    
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo"><a href="#home">Christy Biji</a></div>
-            <ul class="nav-menu">
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#courses" class="nav-link">Courses</a></li>
-                <li><a href="#cv" class="nav-link">CV</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-        <!-- Education Section -->
-        <section class="content-section" id="education">
-            <div class="container">
-                <h2 class="section-title">Education</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">January 2023</div>
-                            <h3>MS in Chemical and Biomolecular Engineering</h3>
-                            <h4>Whiting School of Engineering, Johns Hopkins University</h4>
-                            <div class="timeline-details">
-                                <p><strong>Advisors:</strong> Jaime Spangler, Aaron Wolman</p>
-                                <p><strong>Thesis:</strong> Development of a human iPSC derived microglia assay for evaluation of target dependent activation and pharmacological inhibition</p>
-                                <div class="thesis-links">
-                                    <a href="#" class="thesis-link" target="_blank">View Thesis <i class="fas fa-external-link-alt"></i></a>
+    <div class="page-body">
+        <!-- Biography Section -->
+        <section id="section-resume-biography" class="relative hbb-section blox-resume-biography" style="padding:4rem 0">
+            <div class="home-section-bg"></div>
+            <div id="profile" class="resume-biography flex justify-center items-center flex-col dark:text-white">
+                <div class="avatar-wrapper -mt-[105px]">
+                    <img class="avatar rounded-full bg-white dark:bg-gray-800 p-1" src="media/avatar.jpg" width="150" height="150">
+                    <span class="avatar-emoji">🎓</span>
+                </div>
+                <div class="text-3xl font-bold mb-2 mt-6">Dr. Academic Professional</div>
+                <h3 class="font-semibold mb-1">Research Scientist & Professor</h3>
+                <div class="mb-2">
+                    <a href="https://www.university.edu/" target="_blank" rel="noopener">
+                        <div>University of Excellence</div>
+                    </a>
+                </div>
+                <ul class="network-icon dark:text-zinc-100">
+                    <li>
+                        <a href="mailto:academic@university.edu" aria-label="at-symbol" data-toggle="tooltip" data-placement="top" title="E-mail Me">
+                            <svg style="height:1.5rem" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-width="1.5" d="M16.5 12a4.5 4.5.0 11-9 0 4.5 4.5.0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/academic" target="_blank" rel="noopener" aria-label="brands/x">
+                            <svg style="height:1.5rem" viewBox="0 0 512 512">
+                                <path fill="currentcolor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/academic" target="_blank" rel="noopener" aria-label="brands/github">
+                            <svg style="height:1.5rem" fill="currentcolor" viewBox="3 3 18 18">
+                                <path d="M12 3C7.0275 3 3 7.12937 3 12.2276c0 4.0833 2.57625 7.5321 6.15374 8.7548C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441 9.77249 20.3249 9.76125 19.5982 9.76125 18.8254 7.5 19.2522 6.915 18.2602 6.735 17.7412 6.63375 17.4759 6.19499 16.6569 5.8125 16.4378 5.4975 16.2647 5.0475 15.838 5.80124 15.8264 6.51 15.8149 7.01625 16.4954 7.18499 16.7723 7.99499 18.1679 9.28875 17.7758 9.80625 17.5335 9.885 16.9337 10.1212 16.53 10.38 16.2993 8.3775 16.0687 6.285 15.2728 6.285 11.7432c0-1.0035.34875-1.834.92249-2.47994C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794c0 0 .753749999999999-.24223 2.47499.94583.72001-.20762 1.48501-.31143 2.25001-.31143C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377c1.7212-1.19959 2.475-.94583 2.475-.94583C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326 17.4113 9.9092 17.76 10.7281 17.76 11.7432c0 3.5411-2.1037 4.3255-4.1063 4.5561C13.98 16.5877 14.2613 17.1414 14.2613 18.0065 14.2613 19.2407 14.25 20.2326 14.25 20.5441 14.25 20.7863 14.4188 21.0746 14.8688 20.9824 16.6554 20.364 18.2079 19.1866 19.3078 17.6162c1.0999-1.5705 1.6917-3.4551 1.6922-5.3886C21 7.12937 16.9725 3 12 3z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/academic" target="_blank" rel="noopener" aria-label="brands/linkedin">
+                            <svg style="height:1.5rem" height="1em" viewBox="0 0 448 512">
+                                <path fill="currentcolor" d="M416 32H31.9C14.3 32 0 46.5.0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3.0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2.0 38.5 17.3 38.5 38.5.0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=academic" target="_blank" rel="noopener" aria-label="Google Scholar">
+                            <svg style="height:1.5rem" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 11a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="pt-2 d-flex justify-content-center prose prose-slate lg:prose-xl dark:prose-invert">
+                    <div class="bio-text" style="text-align:justify;font-size:.8em">
+                        <p>I am a passionate research scientist and professor specializing in cutting-edge technologies and innovative solutions. My work focuses on advancing knowledge in my field through rigorous research, collaborative projects, and mentoring the next generation of scholars.</p>
+                    </div>
+                </div>
+                <a href="uploads/resume.pdf" target="_blank" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-primary-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                    <svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" fill="currentcolor" viewBox="0 0 20 20">
+                        <path d="M14.707 7.793a1 1 0 00-1.414.0L11 10.086V1.5a1 1 0 00-2 0v8.586L6.707 7.793A1 1 0 105.293 9.207l4 4a1 1 0 001.416.0l4-4a1 1 0 00-.002-1.414z"></path>
+                        <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5.0 01-4.95.0L4.55 12H2a2 2 0 00-2 2v4a2 2 0 002 2h16a2 2 0 002-2v-4a2 2 0 00-2-2zm-3 5a1 1 0 110-2 1 1 0 010 2z"></path>
+                    </svg> Download CV
+                </a>
+            </div>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section id="section-resume-experience" class="relative hbb-section blox-resume-experience" style="padding:4rem 0">
+            <div class="home-section-bg"></div>
+            <div class="flex flex-col items-center max-w-prose mx-auto">
+                <div class="flex flex-col lg:gap-x-6 w-100 px-6 sm:px-0">
+                    <div class="w-full">
+                        <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">Experience</h3>
+                        <ol class="relative border-s border-gray-200 dark:border-gray-700">
+                            <li class="mb-10 ms-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
+                                    <svg fill="currentcolor" viewBox="0 0 256 256" class="w-5 h-5 text-primary-800 dark:text-primary-300">
+                                        <path d="M216 56H176V48a24 24 0 00-24-24H104A24 24 0 0080 48v8H40A16 16 0 0024 72V2e2a16 16 0 0016 16H216a16 16 0 0016-16V72A16 16 0 00216 56zM96 48a8 8 0 018-8h48a8 8 0 018 8v8H96zM216 72v41.61A184 184 0 01128 136a184.07 184.07.0 01-88-22.38V72zm0 128H40V131.64A200.19 200.19.0 00128 152a200.25 200.25.0 0088-20.37V2e2zM104 112a8 8 0 018-8h32a8 8 0 010 16H112a8 8 0 01-8-8z"></path>
+                                    </svg>
+                                </span>
+                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white text-wrap">Associate Professor</h3>
+                                <span class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">University of Excellence</span>
+                                <time class="block mb-3 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">2020 – Present</time>
+                                <div class="mb-4 text-base font-normal text-gray-500 dark:text-gray-300 text-wrap prose prose-slate dark:prose-invert">
+                                    <p>Leading research initiatives and teaching advanced courses in my field of expertise.</p>
+                                    <ul>
+                                        <li>Published 15+ peer-reviewed papers in top-tier journals</li>
+                                        <li>Secured $2M+ in research funding from NSF and private foundations</li>
+                                        <li>Mentored 20+ graduate students and postdoctoral researchers</li>
+                                    </ul>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <i class="fas fa-flask"></i>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">October 2020</div>
-                            <h3>B.Tech Biotechnology</h3>
-                            <h4>Department of Biotechnology, Savitribai Phule Pune University (Sinhgad College of Engineering)</h4>
-                            <div class="timeline-details">
-                                <p><strong>Advisor:</strong> Shraddha Kulkurani</p>
-                                <p><strong>Thesis:</strong> Extraction and Application of Hydrophobin</p>
-                                <div class="thesis-links">
-                                    <a href="#" class="thesis-link" target="_blank">View Thesis <i class="fas fa-external-link-alt"></i></a>
+                            </li>
+                            <li class="mb-10 ms-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
+                                    <svg fill="currentcolor" viewBox="0 0 256 256" class="w-5 h-5 text-primary-800 dark:text-primary-300">
+                                        <path d="M216 56H176V48a24 24 0 00-24-24H104A24 24 0 0080 48v8H40A16 16 0 0024 72V2e2a16 16 0 0016 16H216a16 16 0 0016-16V72A16 16 0 00216 56zM96 48a8 8 0 018-8h48a8 8 0 018 8v8H96zM216 72v41.61A184 184 0 01128 136a184.07 184.07.0 01-88-22.38V72zm0 128H40V131.64A200.19 200.19.0 00128 152a200.25 200.25.0 0088-20.37V2e2zM104 112a8 8 0 018-8h32a8 8 0 010 16H112a8 8 0 01-8-8z"></path>
+                                    </svg>
+                                </span>
+                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white text-wrap">Research Scientist</h3>
+                                <span class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">Tech Research Institute</span>
+                                <time class="block mb-3 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">2018 – 2020</time>
+                                <div class="mb-4 text-base font-normal text-gray-500 dark:text-gray-300 text-wrap prose prose-slate dark:prose-invert">
+                                    <p>Conducted cutting-edge research in emerging technologies.</p>
+                                    <ul>
+                                        <li>Developed novel algorithms for data analysis</li>
+                                        <li>Collaborated with industry partners on applied research</li>
+                                        <li>Presented findings at international conferences</li>
+                                    </ul>
                                 </div>
-                            </div>
-                        </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="w-full">
+                        <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">Education</h3>
+                        <ol class="relative border-s border-gray-200 dark:border-gray-700">
+                            <li class="mb-10 ms-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
+                                    <svg fill="currentcolor" viewBox="0 0 256 256" class="w-5 h-5 text-primary-800 dark:text-primary-300">
+                                        <path d="M251.76 88.94l-120-64a8 8 0 00-7.52.0l-120 64a8 8 0 000 14.12L32 117.87v48.42a15.91 15.91.0 004.06 10.65C49.16 191.53 78.51 216 128 216a130 130 0 0048-8.76V240a8 8 0 0016 0V199.51a115.63 115.63.0 0027.94-22.57A15.91 15.91.0 00224 166.29V117.87l27.76-14.81a8 8 0 000-14.12zM128 2e2c-43.27.0-68.72-21.14-80-33.71V126.4l76.24 40.66a8 8 0 007.52.0L176 143.47v46.34C163.4 195.69 147.52 2e2 128 2e2zm80-33.75a97.83 97.83.0 01-16 14.25V134.93l16-8.53zm-20-47.31-.22-.13-56-29.87a8 8 0 00-7.52 14.12L171 128l-43 22.93L25 96 128 41.07 231 96z"></path>
+                                    </svg>
+                                </span>
+                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">PhD in Computer Science</h3>
+                                <span class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">Stanford University</span>
+                                <time class="block mb-3 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">2014 – 2018</time>
+                                <div class="mb-4 text-base font-normal text-gray-500 dark:text-gray-300 prose prose-slate dark:prose-invert">
+                                    Thesis on <em>Advanced Machine Learning Algorithms for Real-World Applications</em>. Supervised by <a href="https://example.com" target="_blank" rel="noopener">Prof. Jane Smith</a>. Published 8 papers in top-tier conferences and journals.
+                                </div>
+                                <a href="uploads/thesis.pdf" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-primary-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                                    <svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" fill="currentcolor" viewBox="0 0 20 20">
+                                        <path d="M14.707 7.793a1 1 0 00-1.414.0L11 10.086V1.5a1 1 0 00-2 0v8.586L6.707 7.793A1 1 0 105.293 9.207l4 4a1 1 0 001.416.0l4-4a1 1 0 00-.002-1.414z"></path>
+                                        <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5.0 01-4.95.0L4.55 12H2a2 2 0 00-2 2v4a2 2 0 002 2h16a2 2 0 002-2v-4a2 2 0 00-2-2zm-3 5a1 1 0 110-2 1 1 0 010 2z"></path>
+                                    </svg> Read Thesis
+                                </a>
+                            </li>
+                            <li class="mb-10 ms-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
+                                    <svg fill="currentcolor" viewBox="0 0 256 256" class="w-5 h-5 text-primary-800 dark:text-primary-300">
+                                        <path d="M251.76 88.94l-120-64a8 8 0 00-7.52.0l-120 64a8 8 0 000 14.12L32 117.87v48.42a15.91 15.91.0 004.06 10.65C49.16 191.53 78.51 216 128 216a130 130 0 0048-8.76V240a8 8 0 0016 0V199.51a115.63 115.63.0 0027.94-22.57A15.91 15.91.0 00224 166.29V117.87l27.76-14.81a8 8 0 000-14.12zM128 2e2c-43.27.0-68.72-21.14-80-33.71V126.4l76.24 40.66a8 8 0 007.52.0L176 143.47v46.34C163.4 195.69 147.52 2e2 128 2e2zm80-33.75a97.83 97.83.0 01-16 14.25V134.93l16-8.53zm-20-47.31-.22-.13-56-29.87a8 8 0 00-7.52 14.12L171 128l-43 22.93L25 96 128 41.07 231 96z"></path>
+                                    </svg>
+                                </span>
+                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">MSc in Computer Science</h3>
+                                <span class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">MIT</span>
+                                <time class="block mb-3 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">2012 – 2014</time>
+                                <div class="mb-4 text-base font-normal text-gray-500 dark:text-gray-300 prose prose-slate dark:prose-invert">
+                                    <p>GPA: 3.9/4.0</p>
+                                    <p>Courses included:</p>
+                                    <ul>
+                                        <li>Advanced Algorithms and Data Structures</li>
+                                        <li>Machine Learning and Artificial Intelligence</li>
+                                        <li>Distributed Systems and Cloud Computing</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Research Experience Section -->
-        <section class="content-section" id="experience">
-            <div class="container">
-                <h2 class="section-title">Research Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <i class="fas fa-microscope"></i>
-                            </div>
+        <!-- Awards Section -->
+        <section id="section-resume-awards" class="relative hbb-section blox-resume-awards" style="padding:4rem 0">
+            <div class="home-section-bg"></div>
+            <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center">
+                <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">Awards & Certifications</div>
+                <div class="w-full flex flex-col gap-6">
+                    <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3">
+                            <svg style="height:100%" viewBox="0 0 24 24" fill="currentcolor">
+                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
+                            </svg>
                         </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">April 2023 – Present</div>
-                            <h3>Research Associate II</h3>
-                            <h4>Center for the Development of Therapeutics (CDoT), The Broad Institute of MIT & Harvard</h4>
-                            <p><strong>Location:</strong> Cambridge, MA</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <i class="fas fa-flask"></i>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">June 2022 – January 2023</div>
-                            <h3>Master Thesis Researcher</h3>
-                            <h4>Discovery Neuroscience, Merck</h4>
-                            <p><strong>Location:</strong> Boston, MA</p>
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Outstanding Research Award</h5>
+                        <div class="block mb-3 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">National Science Foundation ∙ 2023</div>
+                        <div class="mb-3 font-normal text-gray-500 dark:text-gray-400 prose">
+                            Recognized for exceptional contributions to the field of computer science and innovative research methodologies.
                         </div>
                     </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <i class="fas fa-heartbeat"></i>
-                            </div>
+                    <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3">
+                            <svg style="height:100%" viewBox="0 0 24 24" fill="currentcolor">
+                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
+                            </svg>
                         </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">November 2021 – May 2022</div>
-                            <h3>Graduate Researcher</h3>
-                            <h4>The Brady Urological Institute at Johns Hopkins</h4>
-                            <p><strong>Location:</strong> Baltimore, MD</p>
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Best Paper Award</h5>
+                        <div class="block mb-3 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">International Conference on Machine Learning ∙ 2022</div>
+                        <div class="mb-3 font-normal text-gray-500 dark:text-gray-400 prose">
+                            Awarded for the paper "Novel Approaches to Deep Learning Optimization" which introduced groundbreaking techniques in neural network training.
                         </div>
                     </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <i class="fas fa-hospital"></i>
-                            </div>
+                    <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3">
+                            <svg style="height:100%" viewBox="0 0 24 24" fill="currentcolor">
+                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
+                            </svg>
                         </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">November 2021 – May 2022</div>
-                            <h3>Graduate Biospecimen Manager</h3>
-                            <h4>Bayview Medical Centre at Johns Hopkins</h4>
-                            <p><strong>Location:</strong> Baltimore, MD</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <i class="fas fa-dna"></i>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">May 2019 – May 2020</div>
-                            <h3>Undergraduate Researcher</h3>
-                            <h4>University of Pune</h4>
-                            <p><strong>Location:</strong> Pune, IN</p>
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Excellence in Teaching Award</h5>
+                        <div class="block mb-3 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">University of Excellence ∙ 2021</div>
+                        <div class="mb-3 font-normal text-gray-500 dark:text-gray-400 prose">
+                            Recognized for outstanding teaching performance and dedication to student success in computer science education.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Projects Section -->
-        <section class="content-section" id="projects">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-list">
-                    <!-- Project Item 1 -->
-                    <div class="project-item">
-                        <div class="project-content">
-                            <h3>BoomExtractor - AI-Powered Scientific Workflow Visualization</h3>
-                            <p class="project-award">🏆 Awarded BroadHacks Best Overall Project and People's Choice Award</p>
-                            <p>Led the end-to-end development of an AI-driven tool to accelerate research comprehension by automatically generating scientifically-validated experimental workflow diagrams from papers using Python, Gemini AI, and React.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">FastAPI</span>
-                                <span class="tech-tag">Google Gemini AI</span>
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">React Flow</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">View Slides <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Item 2 -->
-                    <div class="project-item">
-                        <div class="project-content">
-                            <h3>MIT-IDSS-Recommendation-System</h3>
-                            <p class="project-award">Course: Recommendation Systems</p>
-                            <p>Engineered an end-to-end recommendation system by benchmarking collaborative filtering models (User-User, SVD) and optimizing the top-performing SVD model with GridSearchCV to achieve a final RMSE of 0.88.</p>
-                             <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Surprise</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">SVD</span>
-                                <span class="tech-tag">GridSearchCV</span>
-                                <span class="tech-tag">Recommender Systems</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/christybiji/MIT-IDSS-Recommendation-System" class="project-link" target="_blank">GitHub Repo <i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Item 3 -->
-                    <div class="project-item">
-                        <div class="project-content">
-                            <h3>MIT-IDSS-Lead-Scoring-Model</h3>
-                            <p class="project-award">Course: Classification and Hypothesis Testing</p>
-                            <p>Developed an end-to-end lead scoring pipeline by tuning multiple classifiers (Random Forest, Decision Tree) with GridSearchCV to optimize for recall (>82%), enabling data-driven prioritization of high-potential sales leads.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Scikit-learn</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">Decision Trees</span>
-                                <span class="tech-tag">Random Forests</span>
-                                <span class="tech-tag">Logistic Regression</span>
-                            </div>
-                           <div class="project-links">
-                                <a href="https://github.com/christybiji/MIT-IDSS-Lead-Scoring-Model" class="project-link" target="_blank">GitHub Repo <i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Item 4 -->
-                    <div class="project-item">
-                        <div class="project-content">
-                            <h3>MIT IDSS Project: Customer Personality Segmentation</h3>
-                            <p class="project-award">Course: Making Sense of Unstructured Data</p>
-                            <p>Applied unsupervised learning (K-Means, PCA) to segment a retail customer database, identifying and profiling distinct high-value and low-value personas to inform targeted marketing and retention strategies.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Clustering</span>
-                                <span class="tech-tag">Dimensionality Reduction</span>
-                                <span class="tech-tag">EDA</span>
-                                <span class="tech-tag">Feature Engineering</span>
-                                <span class="tech-tag">Unsupervised Learning</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/christybiji/MIT-IDSS-Customer-Segmentation" class="project-link" target="_blank">GitHub Repo <i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Item 5 -->
-                    <div class="project-item">
-                        <div class="project-content">
-                            <h3>Knockout NEU3 gene target with CRISPR-Cas9</h3>
-                            <p class="project-award">Tissue Engineering Lab</p>
-                            <p>Engineered a CRISPR-Cas9 gene-editing tool to knock out the sialidase Neu3 in CHO cells, a strategy aimed at increasing the sialylation and therapeutic half-life of recombinant hIFNγ.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">CRISPR-Cas9</span>
-                                <span class="tech-tag">Gene Editing</span>
-                                <span class="tech-tag">CHO Cells</span>
-                                <span class="tech-tag">Sialylation</span>
-                                <span class="tech-tag">Therapeutic Proteins</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">View Report <i class="fas fa-file-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Item 6 -->
-                    <div class="project-item">
-                        <div class="project-content">
-                            <h3>Engineering Lungs with mtDNA-Edited iPSCs</h3>
-                            <p class="project-award">Tissue Engineering Group Project</p>
-                            <p>Proposed a novel therapeutic strategy to mitigate transplant rejection by bioengineering lungs from decellularized scaffolds repopulated with autologous iPSCs that were gene-edited via CRISPR to remove immunogenic mtDNA mutations. Designed an experimental plan integrating next-generation sequencing (NGS) for mutation detection, bioinformatics tools (CRISPy, Benchling) for guide RNA design, and statistical analysis (ANOVA, t-test) to validate editing efficacy.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">CRISPR</span>
-                                <span class="tech-tag">iPSCs</span>
-                                <span class="tech-tag">NGS</span>
-                                <span class="tech-tag">Bioinformatics</span>
-                                <span class="tech-tag">Statistical Analysis</span>
-                                <span class="tech-tag">Tissue Engineering</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">View Report <i class="fas fa-file-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="content-section" id="skills">
-            <div class="container">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-brain"></i> Machine Learning & Statistical Modeling</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">Classification (Logistic Regression, Random Forests)</span>
-                            <span class="skill-tag">Clustering (k-means, Hierarchical)</span>
-                            <span class="skill-tag">Dimensionality reduction (PCA, UMAP)</span>
-                            <span class="skill-tag">Statistical inference</span>
-                            <span class="skill-tag">Hypothesis testing</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-microscope"></i> Bioimage & High-Content Data Analysis</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">End-to-end experience in high-content screening workflows</span>
-                            <span class="skill-tag">Quantitative morphological profiling (CellProfiler, ImageJ, Cellpose)</span>
-                            <span class="skill-tag">Large-scale data analysis (Genedata Screener, LIMS)</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Programming & Software</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">Python (Pandas, Scikit-learn, Matplotlib)</span>
-                            <span class="skill-tag">R (Tidyverse)</span>
-                            <span class="skill-tag">MATLAB</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">Git version control</span>
-                            <span class="skill-tag">Terra cloud computing</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-flask"></i> Experimental Biology Foundation</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">Mammalian cell culture</span>
-                            <span class="skill-tag">Cell Painting</span>
-                            <span class="skill-tag">ELISA</span>
-                            <span class="skill-tag">High Throughput multiplexed screening in 384-well format</span>
-                            <span class="skill-tag">Dose-response profiling</span>
-                            <span class="skill-tag">Immunocytochemistry (ICC)</span>
-                            <span class="skill-tag">BSL2+/BSL2</span>
-                            <span class="skill-tag">Automated screening instrumentation (Opera Phenix High Content Screening System, Beckman Coulter Echo, Biotek, Pherastar)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Courses Section -->
-        <section class="content-section" id="courses">
-            <div class="container">
-                <h2 class="section-title">Coursework & Certifications</h2>
-                <div class="courses-grid">
-                    <div class="course-item">
-                        <div class="course-logo">
-                            <img src="mit-idss-logo.png" alt="MIT IDSS Logo">
-                        </div>
-                        <div class="course-content">
-                            <h3>Image Data Analysis Bootcamp</h3>
-                            <p class="course-institution">Cimini lab, The Broad Institute</p>
-                            <p class="course-date">August 2025</p>
-                            <p class="course-description">Intensive bootcamp focused on image data analysis techniques, covering high-content screening data processing, morphological profiling, and bioimage informatics for drug discovery applications.</p>
-                            <div class="course-tags">
-                                <span class="course-tag">Image Analysis</span>
-                                <span class="course-tag">High-Content Screening</span>
-                                <span class="course-tag">Bioinformatics</span>
-                                <span class="course-tag">Drug Discovery</span>
-                            </div>
-                            <div class="course-links">
-                                <a href="#" class="course-link">See certificate <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="course-item">
-                        <div class="course-logo">
-                            <img src="mit-idss-logo.png" alt="MIT IDSS Logo">
-                        </div>
-                        <div class="course-content">
-                            <h3>Data Science and Machine Learning: Making Data-Driven Decisions</h3>
-                            <p class="course-institution">MIT IDSS</p>
-                            <p class="course-date">January 2025</p>
-                            <p class="course-description">Comprehensive program covering data science fundamentals, machine learning algorithms, and statistical analysis for making informed data-driven decisions in research and industry applications.</p>
-                            <div class="course-tags">
-                                <span class="course-tag">Data Science</span>
-                                <span class="course-tag">Machine Learning</span>
-                                <span class="course-tag">Statistical Analysis</span>
-                            </div>
-                            <div class="course-links">
-                                <a href="#" class="course-link">See certificate <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="course-item">
-                        <div class="course-logo">
-                            <img src="harvard-extension-logo.png" alt="Harvard Extension Logo">
-                        </div>
-                        <div class="course-content">
-                            <h3>Mathematical Statistics (Graduate-Level)</h3>
-                            <p class="course-institution">Harvard Extension</p>
-                            <p class="course-date">December 2024</p>
-                            <p class="course-description">Advanced graduate-level coursework in mathematical statistics, covering theoretical foundations, probability theory, and statistical inference methods. Grade: A.</p>
-                            <div class="course-tags">
-                                <span class="course-tag">Mathematical Statistics</span>
-                                <span class="course-tag">Probability Theory</span>
-                                <span class="course-tag">Statistical Inference</span>
-                                <span class="course-tag">Graduate Level</span>
-                            </div>
-                            <div class="course-links">
-                                <a href="#" class="course-link">See certificate <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="course-item">
-                        <div class="course-logo">
-                            <img src="coursera-logo.png" alt="Coursera Logo">
-                        </div>
-                        <div class="course-content">
-                            <h3>Introduction to the Biology of Cancer</h3>
-                            <p class="course-institution">Johns Hopkins</p>
-                            <p class="course-date">July 2020</p>
-                            <p class="course-description">Comprehensive course covering the fundamental principles of cancer biology, including molecular mechanisms, genetic basis, and therapeutic approaches to cancer treatment.</p>
-                            <div class="course-tags">
-                                <span class="course-tag">Cancer Biology</span>
-                                <span class="course-tag">Molecular Biology</span>
-                                <span class="course-tag">Genetics</span>
-                                <span class="course-tag">Therapeutics</span>
-                            </div>
-                            <div class="course-links">
-                                <a href="#" class="course-link">See certificate <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="course-item">
-                        <div class="course-logo">
-                            <img src="coursera-logo.png" alt="Coursera Logo">
-                        </div>
-                        <div class="course-content">
-                            <h3>Genes and the Human Condition (From Behavior to Biotechnology)</h3>
-                            <p class="course-institution">University of Maryland</p>
-                            <p class="course-date">June 2020</p>
-                            <p class="course-description">Explored the relationship between genes and human behavior, covering topics from basic genetics to advanced biotechnology applications and their impact on human health.</p>
-                            <div class="course-tags">
-                                <span class="course-tag">Genetics</span>
-                                <span class="course-tag">Human Behavior</span>
-                                <span class="course-tag">Biotechnology</span>
-                                <span class="course-tag">Human Health</span>
-                            </div>
-                            <div class="course-links">
-                                <a href="#" class="course-link">See certificate <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="course-item">
-                        <div class="course-logo">
-                            <img src="coursera-logo.png" alt="Coursera Logo">
-                        </div>
-                        <div class="course-content">
-                            <h3>Antimicrobial resistance - theory and methods</h3>
-                            <p class="course-institution">Technical University of Denmark</p>
-                            <p class="course-date">June 2020</p>
-                            <p class="course-description">Comprehensive course covering the theoretical foundations and practical methods for understanding and combating antimicrobial resistance, including laboratory techniques and analytical approaches.</p>
-                            <div class="course-tags">
-                                <span class="course-tag">Antimicrobial Resistance</span>
-                                <span class="course-tag">Microbiology</span>
-                                <span class="course-tag">Laboratory Methods</span>
-                                <span class="course-tag">Public Health</span>
-                            </div>
-                            <div class="course-links">
-                                <a href="#" class="course-link">See certificate <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CV Section -->
-        <section class="content-section" id="cv">
-            <div class="container">
-                <h2 class="section-title">Resume / CV</h2>
-                <div class="cv-content">
-                    <h3>My Curriculum Vitae</h3>
-                    <p>For a detailed overview of my experience, projects, and skills, please view or download my CV.</p>
-                    <div class="cv-buttons">
-                        <a href="cv.html" class="cv-btn primary" target="_blank">View CV <i class="fas fa-external-link-alt"></i></a>
-                        <a href="cv.html" class="cv-btn secondary" download>Download CV <i class="fas fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="content-section" id="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h3>Email</h3>
-                                <p><a href="mailto:biji@broadinstitute.org">biji@broadinstitute.org</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h3>Location</h3>
-                                <p>Cambridge, MA</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-building"></i>
-                            <div>
-                                <h3>Institution</h3>
-                                <p>The Broad Institute of MIT and Harvard</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-form">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Christy Biji. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <div class="page-footer">
+        <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+            <p class="powered-by text-center">© 2024 Academic Professional. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a></p>
+            <p class="powered-by text-center">Built with modern web technologies for optimal performance and accessibility.</p>
+        </footer>
+    </div>
 
-    <script src="script.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/particle-slider.js"></script>
 </body>
 </html>

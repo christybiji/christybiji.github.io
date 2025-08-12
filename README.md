@@ -1,91 +1,103 @@
-# Christy Biji - Academic Website
+# Academic Website
 
-A modern, responsive academic website showcasing research experience, projects, and skills in computational biology and drug discovery.
+A modern, responsive academic website built with HTML, CSS, and JavaScript. Features a clean design with dark/light mode toggle and particle slider background effect.
 
-## 🌟 Features
+## Features
 
-- **Interactive Landing Page**: Beautiful eukaryotic cell background with particle animation
-- **Responsive Design**: Mobile-first approach with smooth animations
-- **Professional Timeline**: Clean presentation of education and research experience
-- **Project Showcase**: Detailed project descriptions with technology tags
-- **Skills Visualization**: Organized skill categories with interactive elements
-- **Contact Form**: Functional contact form with validation
-- **CV Page**: Dedicated CV/resume page with professional styling
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Dark/Light Mode**: Toggle between themes with system preference detection
+- **Particle Slider**: Interactive background animation (based on CodePen reference)
+- **Modern UI**: Clean, professional design suitable for academics
+- **Accessibility**: Proper semantic HTML and ARIA labels
+- **Performance**: Optimized CSS and minimal JavaScript
 
-## 🚀 Technologies Used
-
-- **HTML5**: Semantic markup and accessibility
-- **CSS3**: Modern styling with Flexbox, Grid, and animations
-- **JavaScript**: Interactive features and particle animation
-- **Font Awesome**: Professional icons
-- **Google Fonts**: Inter font family for clean typography
-
-## 📱 Responsive Design
-
-- Mobile-first approach
-- Tablet and desktop optimized
-- Touch-friendly navigation
-- Adaptive layouts for all screen sizes
-
-## 🎨 Design Features
-
-- **Particle Animation**: Interactive canvas-based particle system
-- **Smooth Scrolling**: Navigation with smooth scroll behavior
-- **Hover Effects**: Interactive elements with smooth transitions
-- **Gradient Accents**: Modern color schemes throughout
-- **Backdrop Filters**: Glass-morphism effects for modern UI
-
-## 📁 File Structure
+## File Structure
 
 ```
 academic-website/
-├── index.html          # Main landing page
-├── cv.html            # CV/resume page
-├── styles.css         # Main stylesheet
-├── script.js          # JavaScript functionality
-├── README.md          # Project documentation
-├── eukaryotic-cell-bg.jpg  # Background image
-├── profile-picture.png     # Profile image
-├── mit-idss-logo.png      # MIT IDSS logo
-├── harvard-extension-logo.png  # Harvard Extension logo
-└── coursera-logo.png      # Coursera logo
+├── index.html              # Main HTML file
+├── css/
+│   ├── wc.min.css          # Main stylesheet
+│   └── themes/
+│       └── blue.min.css    # Blue theme colors
+├── js/
+│   ├── theme-toggle.js     # Dark/light mode functionality
+│   └── particle-slider.js  # Background animation
+├── media/                  # Images and media files
+│   └── placeholder.txt
+├── uploads/                # Downloadable files
+│   └── placeholder.txt
+└── README.md
 ```
 
-## 🎯 Key Sections
+## Setup Instructions
 
-1. **Hero Section**: Profile with eukaryotic cell background
-2. **Education**: Timeline of academic achievements
-3. **Research Experience**: Professional experience timeline
-4. **Projects**: Portfolio of research and technical projects
-5. **Skills**: Technical and domain expertise
-6. **Courses**: Certifications and coursework
-7. **Contact**: Contact information and form
+1. **Add Your Content**: 
+   - Replace placeholder text in `index.html` with your information
+   - Update links to your social media profiles
+   - Add your actual experience, education, and awards
 
-## 🚀 Getting Started
+2. **Add Media Files**:
+   - Add your profile picture as `media/avatar.jpg`
+   - Add a favicon as `media/icon.png`
+   - Add your CV/resume as `uploads/resume.pdf`
+   - Add your thesis as `uploads/thesis.pdf` (if applicable)
 
-1. Clone or download the repository
-2. Ensure all image files are in the correct directory
-3. Open `index.html` in a web browser
-4. For deployment, upload all files to your web server
+3. **Customize Colors**:
+   - Edit `css/themes/blue.min.css` to change the primary color scheme
+   - Modify CSS variables in the `:root` selector
 
-## 🌐 Browser Support
+4. **Deploy**:
+   - Upload all files to your web server
+   - Ensure all file paths are correct
+   - Test the website on different devices
+
+## Customization
+
+### Changing Colors
+Edit the CSS variables in `css/themes/blue.min.css`:
+
+```css
+:root {
+  --primary-500: #3b82f6; /* Main blue color */
+  --primary-700: #1d4ed8; /* Darker blue */
+  /* ... other colors */
+}
+```
+
+### Adding Sections
+You can add new sections by copying the existing section structure in `index.html`:
+
+```html
+<section id="section-your-section" class="relative hbb-section" style="padding:4rem 0">
+    <div class="home-section-bg"></div>
+    <div class="container mx-auto">
+        <!-- Your content here -->
+    </div>
+</section>
+```
+
+### Particle Slider Settings
+The particle slider effect can be customized in `js/particle-slider.js`. The GUI controls will appear on desktop devices (width > 1000px).
+
+## Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+- Mobile browsers
 
-## 📧 Contact
+## Credits
 
-- **Email**: biji@broadinstitute.org
-- **Location**: Cambridge, MA
-- **Institution**: The Broad Institute of MIT and Harvard
+- **Particle Slider**: Based on the work by Tamino Martinius (http://zaku.eu)
+- **Icons**: SVG icons from various sources
+- **Design**: Inspired by modern academic websites
 
-## 📄 License
+## License
 
-This project is for personal use. All content and design are property of Christy Biji.
+This project is open source and available under the [MIT License](LICENSE).
 
----
+## Support
 
-*Built with modern web technologies for a professional academic presence.*
+For issues or questions, please check the code comments or create an issue in the repository.
