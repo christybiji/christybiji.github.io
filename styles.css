@@ -111,7 +111,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(239, 243, 247, 0.3) 0%, rgba(209, 216, 224, 0.3) 50%, rgba(184, 197, 209, 0.3) 100%), url('./background-image.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('eukaryotic-cell-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -215,21 +215,21 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     margin: 0;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-title {
     font-size: 1.8rem;
     margin: 0;
-    color: #555;
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
 }
 
 .hero-company {
     font-size: 1.2rem;
     margin: 0;
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
     font-weight: 400;
 }
 
