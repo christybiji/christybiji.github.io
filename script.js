@@ -1,119 +1,55 @@
-// Particle Animation
-class ParticleSlider {
-    constructor() {
-        this.canvas = document.querySelector('.draw');
-        this.ctx = this.canvas.getContext('2d');
-        this.particles = [];
-        this.mouse = { x: 0, y: 0 };
-        this.animationId = null;
-        
-        this.init();
-    }
+// Tamino Martinius - All rights reserved
+
+// Copyright © 2013 Tamino Martinius (http://zaku.eu)
+// Copyright © 2013 Particleslider.com (http://particleslider.com
+
+// Terms of usage: http://particleslider.com/legal/license
+
+var init = function(){
+  var isMobile = navigator.userAgent &&
+    navigator.userAgent.toLowerCase().indexOf('mobile') >= 0;
+  var isSmall = window.innerWidth < 1000;
+  
+  var ps = new ParticleSlider({
+    ptlGap: isMobile || isSmall ? 3 : 0,
+    ptlSize: isMobile || isSmall ? 3 : 1,
+    width: 1e9,
+    height: 1e9
+  });
     
-    init() {
-        this.resize();
-        this.createParticles();
-        this.bindEvents();
-        this.animate();
-    }
-    
-    resize() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-    }
-    
-    createParticles() {
-        const particleCount = 100;
-        
-        for (let i = 0; i < particleCount; i++) {
-            this.particles.push({
-                x: Math.random() * this.canvas.width,
-                y: Math.random() * this.canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                size: Math.random() * 2 + 1,
-                opacity: Math.random() * 0.5 + 0.2,
-                color: `hsl(${Math.random() * 60 + 200}, 70%, 60%)`
-            });
-        }
-    }
-    
-    bindEvents() {
-        window.addEventListener('resize', () => this.resize());
-        
-        this.canvas.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
-        });
-        
-        this.canvas.addEventListener('mouseleave', () => {
-            this.mouse.x = 0;
-            this.mouse.y = 0;
-        });
-    }
-    
-    animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
-        this.particles.forEach(particle => {
-            // Update position
-            particle.x += particle.vx;
-            particle.y += particle.vy;
-            
-            // Bounce off edges
-            if (particle.x < 0 || particle.x > this.canvas.width) {
-                particle.vx *= -1;
-            }
-            if (particle.y < 0 || particle.y > this.canvas.height) {
-                particle.vy *= -1;
-            }
-            
-            // Mouse interaction
-            const dx = this.mouse.x - particle.x;
-            const dy = this.mouse.y - particle.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            if (distance < 100 && this.mouse.x > 0) {
-                const angle = Math.atan2(dy, dx);
-                particle.vx -= Math.cos(angle) * 0.1;
-                particle.vy -= Math.sin(angle) * 0.1;
-            }
-            
-            // Draw particle
-            this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            this.ctx.fillStyle = particle.color;
-            this.ctx.globalAlpha = particle.opacity;
-            this.ctx.fill();
-            
-            // Draw connections
-            this.particles.forEach(otherParticle => {
-                const dx = particle.x - otherParticle.x;
-                const dy = particle.y - otherParticle.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 100) {
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(particle.x, particle.y);
-                    this.ctx.lineTo(otherParticle.x, otherParticle.y);
-                    this.ctx.strokeStyle = particle.color;
-                    this.ctx.globalAlpha = (100 - distance) / 100 * 0.3;
-                    this.ctx.lineWidth = 1;
-                    this.ctx.stroke();
-                }
-            });
-        });
-        
-        this.ctx.globalAlpha = 1;
-        this.animationId = requestAnimationFrame(() => this.animate());
-    }
-    
-    destroy() {
-        if (this.animationId) {
-            cancelAnimationFrame(this.animationId);
-        }
-    }
+  var gui = new dat.GUI();
+  gui.add(ps, 'ptlGap').min(0).max(5).step(1).onChange(function(){
+    ps.init(true);
+  });
+  gui.add(ps, 'ptlSize').min(1).max(5).step(1).onChange(function(){
+    ps.init(true);
+  });
+  gui.add(ps, 'restless');
+  gui.addColor(ps, 'color').onChange(function(value){
+    ps.monochrome = true;
+    ps.setColor(value);
+	  ps.init(true);
+  });
+  
+  
+  (window.addEventListener
+   ? window.addEventListener('click', function(){ps.init(true)}, false)
+   : window.onclick = function(){ps.init(true)});
 }
+
+var initParticleSlider = function(){
+  var psScript = document.createElement('script');
+  (psScript.addEventListener
+    ? psScript.addEventListener('load', init, false)
+    : psScript.onload = init);
+  psScript.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/23500/ps-0.9.js';
+	psScript.setAttribute('type', 'text/javascript');
+  document.body.appendChild(psScript);
+}
+    
+(window.addEventListener
+  ? window.addEventListener('load', initParticleSlider, false)
+  : window.onload = initParticleSlider);
 
 // Navigation functionality
 class Navigation {
@@ -280,9 +216,6 @@ class ScrollAnimations {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize particle slider
-    const particleSlider = new ParticleSlider();
-    
     // Initialize navigation
     const navigation = new Navigation();
     
@@ -373,16 +306,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Add typing effect to profile name
-    const profileName = document.querySelector('.profile-name');
-    if (profileName) {
-        const text = profileName.textContent;
-        profileName.textContent = '';
+    // Add typing effect to welcome text
+    const welcomeTitle = document.querySelector('.welcome-text h1');
+    if (welcomeTitle) {
+        const text = welcomeTitle.textContent;
+        welcomeTitle.textContent = '';
         
         let i = 0;
         const typeWriter = () => {
             if (i < text.length) {
-                profileName.textContent += text.charAt(i);
+                welcomeTitle.textContent += text.charAt(i);
                 i++;
                 setTimeout(typeWriter, 100);
             }

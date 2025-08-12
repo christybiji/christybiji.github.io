@@ -1,3 +1,58 @@
+/* ParticleSlider CSS */
+@hintImg: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGkAAAAgCAMAAAAmC6asAAAAMFBMVEX19vf19vft7u/19vfp6uv19vfx8vP19vf19vf19vf19vfm5+j19vcAAAD19vfl5udu+MchAAAADnRSTlOIVcIz10StZneZEewiAMEzGswAAAF/SURBVHja7ZXZbsQwCEXjneXa/P/fFntm0uRpVGkaqVX8YAW4cMCxkq1ftW7STbpJP1sJb0lFPkJiekuq4TMkfkti+gxpe0uivRmB9LQOlHraNixnYErPONAfcYZntYfv9aDtJTmUO5OCeukGR5paqZtbGaSVzYWIlZ9DI6vVpC6shJw5TzdlZk47qZpldAkteBVToxNJrLGqoil6MPE9A1bSNorUXPYWvbLUjbg37lwRNPYW6x6eJK4ilB2hVmChJw2nWx4He3Map1exMVFvQyMVN78rlexbY7Gk0tWUm7gsHUnikQ6dwzLRLM/tRKIlGMMFoijmpthqBocLFTLWO41GnhrFXZIGTiTz5pIyA9G4uqSeSV3W4bSsqvycg0x9RTpcKHaHHybNOZBXfPa41jNjLCeqjRopzgI4kXYcsDqVZWJaZwVWHpYBTOuoACCvEpjTC3DFd6/oVV9YmPw+CWsb+H1SxVWkkgkoV5B6ijasXnMjBPIf/u436e+TvgDCaqPX6lO5yQAAAABJRU5ErkJggg==');
+
+html, body {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+html .slides, body .slides, html > .dg, body > .dg {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  body {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGkAAAAgCAMAAAAmC6asAAAAMFBMVEX19vf19vft7u/19vfp6uv19vfx8vP19vf19vf19vf19vfm5+j19vcAAAD19vfl5udu+MchAAAADnRSTlOIVcIz10StZneZEewiAMEzGswAAAF/SURBVHja7ZXZbsQwCEXjneXa/P/fFntm0uRpVGkaqVX8YAW4cMCxkq1ftW7STbpJP1sJb0lFPkJiekuq4TMkfkti+gxpe0uivRmB9LQOlHraNixnYErPONAfcYZntYfv9aDtJTmUO5OCeukGR5paqZtbGaSVzYWIlZ9DI6vVpC6shJw5TzdlZk47qZpldAkteBVToxNJrLGqoil6MPE9A1bSNorUXPYWvbLUjbg37lwRNPYW6x6eJK4ilB2hVmChJw2nWx4He3Map1exMVFvQyMVN78rlexbY7Gk0tWUm7gsHUnikQ6dwzLRLM/tRKIlGMMFoijmpthqBocLFTLWO41GnhrFXZIGTiTz5pIyA9G4uqSeSV3W4bSsqvycg0x9RTpcKHaHHybNOZBXfPa41jNjLCeqjRopzgI4kXYcsDqVZWJaZwVWHpYBTOuoACCvEpjTC3DFd6/oVV9YmPw+CWsb+H1SxVWkkgkoV5B6ijasXnMjBPIf/u436e+TvgDCaqPX6lO5yQAAAABJRU5ErkJggg==');
+    background-repeat: no-repeat;
+  }
+  
+  body > .dg {
+    display: block;
+  }
+}
+
+/* dribbble - twitter */
+.dribbble {
+  position: fixed;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+}
+
+.dribbble img {
+  display: block;
+  height: 28px;
+}
+
+.twitter {
+  position: fixed;
+  display: block;
+  right: 64px;
+  bottom: 14px;
+  z-index: 1000;
+}
+
+.twitter svg {
+  width: 32px;
+  height: 32px;
+  fill: #1da1f2;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -12,7 +67,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Particle Animation Styles */
+/* ParticleSlider Styles */
 #particle-slider {
     position: relative;
     width: 100%;
@@ -57,7 +112,7 @@ body {
     padding: 0 20px;
 }
 
-.profile-section {
+.welcome-text {
     max-width: 600px;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
@@ -67,81 +122,23 @@ body {
     animation: fadeInUp 1s ease-out 0.5s both;
 }
 
-.profile-image {
-    margin-bottom: 30px;
-}
-
-.profile-image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    object-fit: cover;
-}
-
-.profile-name {
-    font-size: 3rem;
+.welcome-text h1 {
+    font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
 }
 
-.profile-title {
+.welcome-text p {
     font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 5px;
     color: #e2e8f0;
-}
-
-.profile-company {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-    color: #cbd5e0;
-}
-
-.profile-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: #a0aec0;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.social-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.calendly-link:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 /* Canvas for Particle Animation */
@@ -833,16 +830,12 @@ body {
         display: flex;
     }
     
-    .profile-name {
-        font-size: 2rem;
+    .welcome-text h1 {
+        font-size: 2.5rem;
     }
     
-    .profile-title {
+    .welcome-text p {
         font-size: 1.2rem;
-    }
-    
-    .profile-company {
-        font-size: 1rem;
     }
     
     .section-title {
@@ -892,23 +885,16 @@ body {
 }
 
 @media (max-width: 480px) {
-    .profile-section {
+    .welcome-text {
         padding: 20px;
         margin: 0 10px;
     }
     
-    .profile-image img {
-        width: 120px;
-        height: 120px;
+    .welcome-text h1 {
+        font-size: 2rem;
     }
     
-    .social-links {
-        gap: 15px;
-    }
-    
-    .social-link {
-        width: 45px;
-        height: 45px;
+    .welcome-text p {
         font-size: 1rem;
     }
     
