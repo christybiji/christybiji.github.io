@@ -1,6 +1,0 @@
-This directory is for media files like:
-- avatar.jpg (profile picture)
-- hero-image.jpg (background image)
-- icon.png (favicon)
-
-Please add your own images to replace these placeholders.

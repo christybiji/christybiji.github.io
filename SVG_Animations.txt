@@ -1,0 +1,44 @@
+<script>
+// This function contains the logic to animate the SVG paths
+function animateSVG() {
+    // 1. Select all the lines and circles in the SVG that need to be animated.
+    //    It looks for any element with the class 'st0' or 'st1'.
+    var paths = document.querySelectorAll('.st0, .st1');
+
+    // 2. Loop through each path (each line and circle)
+    [].forEach.call(paths, function(path) {
+      // 3. Get the total length of the path.
+      var length = path.getTotalLength();
+
+      // 4. Reset any previous animation styles to ensure it starts fresh.
+      path.style.transition = path.style.WebkitTransition = 'none';
+
+      // 5. Set up the "dashed line" effect. This is the key to the animation.
+      //    - `stroke-dasharray` creates a dash pattern. By setting it to the path's own length,
+      //      we create one single dash that is as long as the path itself.
+      //    - `stroke-dashoffset` then pushes that dash along the path. By setting it to the
+      //      full length, we hide the line completely at the start.
+      path.style.strokeDasharray = length + ' ' + length;
+      path.style.strokeDashoffset = length;
+
+      // 6. This is a small trick to force the browser to recognize the starting state
+      //    before the animation begins.
+      path.getBoundingClientRect();
+
+      // 7. Define the animation. We tell the browser to animate the `stroke-dashoffset`
+      //    property over 5 seconds with an "ease-in-out" timing.
+      path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 5s ease-in-out';
+
+      // 8. Trigger the animation by setting the dash offset to 0. This makes the
+      //    "dash" (which is the full line) draw itself into view.
+      path.style.strokeDashoffset = '0';
+    });
+}
+
+// Run the animation function once the page loads.
+animateSVG();
+
+// This line makes the animation repeat every 6 seconds (6000 milliseconds).
+// 5 seconds for the animation to run, and 1 second pause.
+setInterval(animateSVG, 6000);
+</script>

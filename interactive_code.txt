@@ -1,0 +1,1157 @@
+HAS THE INTERACTIVE PARTICLE LOGO AT THE TOP.
+
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" data-wc-theme-default="system" class="light" style="color-scheme: light; scroll-padding-top: 0px; --navbar-height: 0px;">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="generator">
+   <meta name="author">
+   <meta name="description" >
+   <link rel="alternate" hreflang="en-us" href="https://resume-theme.netlify.app/">
+   <link rel="stylesheet" href="/css/themes/blue.min.css">
+   <link href="/dist/wc.min.css" rel="stylesheet">
+   <!-- Load Inter font -->
+   <style>@font-face{font-family:inter var;font-style:normal;font-weight:100 900;font-display:swap;src:url(/dist/font/Inter.var.woff2)format(woff2)}</style>
+   <style>
+       /* General body styling */
+       body {
+           margin: 0;
+           font-family: 'Inter', sans-serif;
+           background-color: #fff;
+           color: #000;
+           scroll-behavior: smooth; /* Add smooth scrolling */
+       }
+
+       /* Navigation bar styling */
+       .navbar {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           padding: 15px 20px;
+           background-color: rgba(255, 255, 255, 0.8);
+           backdrop-filter: blur(5px);
+           z-index: 100;
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+           transition: background-color 0.3s ease;
+       }
+
+       .navbar ul {
+           list-style: none;
+           margin: 0;
+           padding: 0;
+           display: flex;
+           gap: 20px;
+       }
+
+       .navbar a {
+           text-decoration: none;
+           color: #000;
+           font-weight: normal;
+           font-size: 1rem;
+           transition: color 0.3s ease;
+       }
+
+       .navbar a:hover {
+           color: #555;
+       }
+
+       /* Full-screen hero section */
+       .hero-section {
+           height: 100vh;
+           position: relative;
+           display: flex;
+           flex-direction: column;
+       }
+      
+       /* Top section with background image */
+       .hero-top {
+           position: relative;
+           width: 100%;
+           height: calc(50vh + 0.5in); /* Adjusted from 1.5in */
+           background-image: url('https://unsplash.it/1920/1080?random');
+           background-size: cover;
+           background-position: center;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           overflow: hidden;
+       }
+
+       /* Canvas for particles */
+       #particleCanvas {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           z-index: 1;
+       }
+      
+       /* Bottom section with solid background */
+       .hero-bottom {
+           background-color: #fff;
+           width: 100%;
+           height: calc(50vh - 0.5in); /* Adjusted from 1.5in */
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           position: relative;
+       }
+
+       /* Profile picture container */
+       .profile-container {
+           position: absolute;
+           width: 150px;
+           height: 150px;
+           top: -75px;
+           border-radius: 50%;
+           overflow: hidden;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           background-color: #fff;
+           padding: 4px;
+       }
+      
+       .profile-pic {
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+           border-radius: 50%;
+       }
+
+       /* Bio content */
+       .bio-content {
+           text-align: center;
+           margin-top: 90px;
+       }
+
+       .name {
+           font-size: clamp(1.5rem, 3vw, 2.5rem);
+           font-weight: bold;
+           margin: 0;
+           line-height: 1.2;
+       }
+
+       .title {
+           font-size: clamp(1rem, 2vw, 1.2rem);
+           line-height: 1.5;
+           margin: 10px 0 10px;
+           color: #555;
+       }
+      
+       .social-icons {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+           display: flex;
+           gap: 20px;
+           justify-content: center;
+           margin-top: 10px;
+       }
+
+       .social-icons a {
+           color: #000;
+           transition: color 0.3s ease;
+       }
+
+       .social-icons a:hover {
+           color: #4a4a4a;
+       }
+      
+       .social-icons svg {
+           width: 1.5rem;
+           height: 1.5rem;
+       }
+       .quote {
+           margin-top: 25px;
+           margin-bottom: 15px;
+           font-style: normal;
+           font-weight: normal;
+           color: #4b5563;
+           font-size: 1.2rem;
+       }
+
+       /* Download Resume Button */
+       #download-resume-btn {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         box-sizing: border-box;
+         height: 39px;
+         padding: 8px 16px;
+         margin-top: 20px;
+         background-color: rgb(255, 255, 255);
+         border: 1px solid rgb(229, 231, 235);
+         border-radius: 8px;
+         font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+         font-size: 14px;
+         font-weight: 500;
+         color: rgb(17, 24, 39);
+         text-decoration: none;
+         cursor: pointer;
+         transition: background-color 0.2s;
+       }
+
+       #download-resume-btn:hover {
+         background-color: rgb(243, 244, 246);
+       }
+
+       #download-resume-btn svg {
+         width: 14px;
+         height: 14px;
+         margin-right: 10px;
+       }
+
+        /* Education Section Styles */
+        #section-resume-education-container {
+            padding: 4rem 0;
+            font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: #1f2937;
+        }
+        #section-resume-education-container .education-wrapper {
+            max-width: 65ch;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        #section-resume-education-container .education-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 2rem;
+        }
+        #section-resume-education-container .timeline {
+            position: relative;
+            border-left: 2px solid #e5e7eb;
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+        #section-resume-education-container .timeline-item {
+            position: relative;
+            margin-left: 1.5rem;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+        #section-resume-education-container .timeline-icon-span {
+            position: absolute;
+            left: -2.3rem;
+            top: 0.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dbeafe;
+            border-radius: 9999px;
+            width: 1.5rem;
+            height: 1.5rem;
+            box-shadow: 0 0 0 6px white;
+        }
+        #section-resume-education-container .timeline-icon-svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #2563eb;
+        }
+        #section-resume-education-container .degree-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #111827;
+        }
+        #section-resume-education-container .university-name {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.25rem;
+            display: block; /* Ensure it takes its own line */
+        }
+        #section-resume-education-container .education-time {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            display: block; /* Ensure it takes its own line */
+        }
+        #section-resume-education-container .education-description {
+            color: #4b5563;
+            font-size: 1rem;
+        }
+        #section-resume-education-container .education-description p {
+            margin-bottom: 0.5rem;
+        }
+        #section-resume-education-container .education-description ul {
+            list-style-type: disc;
+            padding-left: 1rem;
+            color: #6b7280;
+        }
+        #section-resume-education-container .education-description ul li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        #section-resume-education-container .read-thesis-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        #section-resume-education-container .read-thesis-btn:hover {
+            background-color: #f9fafb;
+        }
+        #section-resume-education-container .read-thesis-btn svg {
+            width: 0.875rem;
+            height: 0.875rem;
+            margin-right: 0.625rem;
+        }
+        @media (max-width: 640px) {
+            #section-resume-education-container .timeline {
+                border-left: none;
+            }
+            #section-resume-education-container .timeline-icon-span {
+                display: none;
+            }
+            #section-resume-education-container .timeline-item {
+                margin-left: 0;
+                padding-left: 0;
+            }
+        }
+
+        /* Experience Section Styles */
+        #section-resume-experience-container {
+            padding: 1rem 0;
+            font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: #1f2937;
+        }
+        #section-resume-experience-container .experience-wrapper {
+            max-width: 65ch;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        #section-resume-experience-container .experience-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 2rem;
+        }
+        #section-resume-experience-container .timeline {
+            position: relative;
+            border-left: 2px solid #e5e7eb;
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+        #section-resume-experience-container .timeline-item {
+            position: relative;
+            margin-left: 1.5rem;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+        #section-resume-experience-container .timeline-icon-span {
+            position: absolute;
+            left: -2.3rem;
+            top: 0.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dbeafe;
+            border-radius: 9999px;
+            width: 1.5rem;
+            height: 1.5rem;
+            box-shadow: 0 0 0 6px white;
+        }
+        #section-resume-experience-container .timeline-icon-svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #2563eb;
+        }
+        #section-resume-experience-container .job-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #111827;
+        }
+        #section-resume-experience-container .company-name {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.25rem;
+            display: block; /* Ensure it takes its own line */
+        }
+        #section-resume-experience-container .job-time {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            display: block; /* Ensure it takes its own line */
+        }
+        #section-resume-experience-container .job-description {
+            color: #4b5563;
+            font-size: 1rem;
+        }
+        #section-resume-experience-container .job-description p {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        #section-resume-experience-container .job-description ul {
+            list-style-type: disc;
+            padding-left: 1rem;
+            color: #6b7280;
+        }
+        #section-resume-experience-container .job-description ul li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 640px) {
+            #section-resume-experience-container .timeline {
+                border-left: none;
+            }
+            #section-resume-experience-container .timeline-icon-span {
+                display: none;
+            }
+            #section-resume-experience-container .timeline-item {
+                margin-left: 0;
+                padding-left: 0;
+            }
+        }
+
+        /* Skills Section Styles */
+        #section-resume-skills-container {
+            padding: 4rem 0;
+            font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+        #section-resume-skills-container .skills-wrapper {
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        #section-resume-skills-container .skills-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        #section-resume-skills-container .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            #section-resume-skills-container .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        #section-resume-skills-container .skill-category-card {
+            padding: 1.5rem;
+            background-color: #f9fafb;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+        }
+        #section-resume-skills-container .skill-category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        #section-resume-skills-container .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #section-resume-skills-container .skill-item {
+            background-color: #e5e7eb;
+            color: #374151;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+
+        /* Projects Section Styles */
+        #section-resume-projects-container {
+            padding: 4rem 0;
+            font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #f9fafb;
+        }
+        #section-resume-projects-container .projects-wrapper {
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        #section-resume-projects-container .projects-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        #section-resume-projects-container .projects-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        #section-resume-projects-container .project-card {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid #e5e7eb;
+            align-items: flex-start;
+        }
+        #section-resume-projects-container .project-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            flex-shrink: 0;
+        }
+        #section-resume-projects-container .project-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #section-resume-projects-container .project-content {
+            flex-grow: 1;
+        }
+        #section-resume-projects-container .project-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            text-decoration: none;
+        }
+        #section-resume-projects-container .project-name:hover {
+            text-decoration: underline;
+        }
+        #section-resume-projects-container .project-meta {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+        #section-resume-projects-container .project-description {
+            font-size: 0.9rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        #section-resume-projects-container .project-description ul li {
+            font-size: 0.9rem;
+        }
+        #section-resume-projects-container .view-project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        #section-resume-projects-container .view-project-btn:hover {
+            text-decoration: underline;
+        }
+        #section-resume-projects-container .view-project-btn svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Awards Section Styles */
+        #section-resume-awards-container {
+            padding: 4rem 0;
+            font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #f9fafb;
+        }
+        #section-resume-awards-container .awards-wrapper {
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        #section-resume-awards-container .awards-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        #section-resume-awards-container .awards-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        #section-resume-awards-container .award-card {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid #e5e7eb;
+            align-items: flex-start;
+        }
+        #section-resume-awards-container .award-logo {
+            width: 2.55rem;
+            height: 2.5rem;
+            flex-shrink: 0;
+        }
+        #section-resume-awards-container .award-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #section-resume-awards-container .award-content {
+            flex-grow: 1;
+        }
+        #section-resume-awards-container .award-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            text-decoration: none;
+        }
+        #section-resume-awards-container .award-name:hover {
+            text-decoration: underline;
+        }
+        #section-resume-awards-container .award-meta {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.1rem;
+        }
+        #section-resume-awards-container .award-description {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        #section-resume-awards-container .award-description ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+        #section-resume-awards-container .award-description ul li {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem; /* Increased spacing */
+        }
+        #section-resume-awards-container .award-description ul li a {
+            text-decoration: none;
+            color: #111827;
+            font-weight: 600;
+        }
+        #section-resume-awards-container .award-description ul li a:hover {
+            text-decoration: underline;
+        }
+        #section-resume-awards-container .award-description .course-issuer {
+            display: block;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        #section-resume-awards-container .see-certificate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        #section-resume-awards-container .see-certificate-btn:hover {
+            text-decoration: underline;
+        }
+        #section-resume-awards-container .see-certificate-btn svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Footer Styling */
+        .page-footer footer {
+            text-align: center;
+        }
+   </style>
+</head>
+<body class="light page-wrapper" id="top">
+   <!-- Navbar -->
+   <nav class="navbar">
+       <ul>
+           <li><a href="#top">Home</a></li>
+           <li><a href="#section-resume-education-container">Education</a></li>
+           <li><a href="#section-resume-experience-container">Experience</a></li>
+           <li><a href="#section-resume-projects-container">Projects</a></li>
+           <li><a href="#section-resume-awards-container">Awards</a></li>
+       </ul>
+   </nav>
+
+   <div class="hero-section">
+    <div class="hero-top">
+        <canvas id="particleCanvas"></canvas>
+    </div>
+    <div class="hero-bottom">
+        <div class="profile-container">
+            <img class="profile-pic" src="https://placehold.co/150x150/000000/FFFFFF?text=CB" alt="Profile Picture">
+        </div>
+        <div class="bio-content">
+            <h2 class="name">Christy Biji</h2>
+            <span class="title">Research Associate<br>The Broad Institute of MIT & Harvard</span>
+            <ul class="social-icons">
+                <li><a href="mailto:your-email@example.com" aria-label="E-mail Me"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-width="1.5" d="M16.5 12a4.5 4.5.0 11-9 0 4.5 4.5.0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25"></path></svg></a></li>
+                <li><a href="https://github.com/gcushen" target="_blank" rel="noopener" aria-label="GitHub"><svg fill="currentcolor" viewBox="3 3 18 18"><path d="M12 3C7.0275 3 3 7.12937 3 12.2276c0 4.0833 2.57625 7.5321 6.15374 8.7548C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441 9.77249 20.3249 9.76125 19.5982 9.76125 18.8254 7.5 19.2522 6.915 18.2602 6.735 17.7412 6.63375 17.4759 6.19499 16.6569 5.8125 16.4378 5.4975 16.2647 5.0475 15.838 5.80124 15.8264 6.51 15.8149 7.01625 16.4954 7.18499 16.7723 7.99499 18.1679 9.28875 17.7758 9.80625 17.5335 9.885 16.9337 10.1212 16.53 10.38 16.2993 8.3775 16.0687 6.285 15.2728 6.285 11.7432c0-1.0035.34875-1.834.92249-2.47994C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794c0 0 .75374-.24223 2.47499.94583.72001-.20762 1.48501-.31143 2.25001-.31143C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377c1.7212-1.19959 2.475-.94583 2.475-.94583C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326 17.4113 9.9092 17.76 10.7281 17.76 11.7432c0 3.5411-2.1037 4.3255-4.1063 4.5561C13.98 16.5877 14.2613 17.1414 14.2613 18.0065 14.2613 19.2407 14.25 20.2326 14.25 20.5441 14.25 20.7863 14.4188 21.0746 14.8688 20.9824 16.6554 20.364 18.2079 19.1866 19.3078 17.6162c1.0999-1.5705 1.6917-3.4551 1.6922-5.3886C21 7.12937 16.9725 3 12 3z"></path></svg></a></li>
+                <li><a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg height="1em" viewBox="0 0 448 512"><path fill="currentcolor" d="M416 32H31.9C14.3 32 0 46.5.0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3.0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2.0 38.5 17.3 38.5 38.5.0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z"></path></svg></a></li>
+                <li><a href="https://calendly.com/" target="_blank" rel="noopener" aria-label="Calendly"><svg viewBox="0 0 512 512" fill="currentcolor"><path d="M256 512C114.6 512 0 397.4 0 256S114.6 0 256 0 512 114.6 512 256 397.4 512 256 512zM336 288H272V416H240V288H176V256H240V144h32V256h64z"></path></svg></a></li>
+            </ul>
+            <p class="quote">Powered by coffee and questionable life choices.</p>
+             <a href="uploads/resume.pdf" target="_blank" id="download-resume-btn">
+                 <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                     <path d="M14.707 7.793a1 1 0 00-1.414.0L11 10.086V1.5a1 1 0 00-2 0v8.586L6.707 7.793A1 1 0 105.293 9.207l4 4a1 1 0 001.416.0l4-4a1 1 0 00-.002-1.414z"></path>
+                     <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5.0 01-4.95.0L4.55 12H2a2 2 0 00-2 2v4a2 2 0 002 2h16a2 2 0 002-2v-4a2 2 0 00-2-2zm-3 5a1 1 0 110-2 1 1 0 010 2z"></path>
+                 </svg>
+                 Download Résumé / CV
+             </a>
+        </div>
+    </div>
+</div>
+
+   <div class="page-body">
+       <section id="section-resume-education-container">
+        <div class="education-wrapper">
+          <div class="w-full">
+              <h3 class="education-title">Education</h3>
+              <ol class="timeline">
+                  <li class="timeline-item">
+                      <span class="timeline-icon-span">
+                          <svg fill="currentColor" viewBox="0 0 256 256" class="timeline-icon-svg">
+                              <path d="M251.76 88.94l-120-64a8 8 0 00-7.52.0l-120 64a8 8 0 000 14.12L32 117.87v48.42a15.91 15.91 0 004.06 10.65C49.16 191.53 78.51 216 128 216a130 130 0 0048-8.76V240a8 8 0 0016 0V199.51a115.63 115.63 0 0027.94-22.57A15.91 15.91 0 00224 166.29V117.87l27.76-14.81a8 8 0 000-14.12zM128 2e2c-43.27.0-68.72-21.14-80-33.71V126.4l76.24 40.66a8 8 0 007.52.0L176 143.47v46.34C163.4 195.69 147.52 2e2 128 2e2zm80-33.75a97.83 97.83 0 01-16 14.25V134.93l16-8.53zm-20-47.31-.22-.13-56-29.87a8 8 0 00-7.52 14.12L171 128l-43 22.93L25 96 128 41.07 231 96z"></path>
+                          </svg>
+                      </span>
+                      <h3 class="degree-title">MS in Chemical and Biomolecular Engineering</h3>
+                      <span class="university-name">Whiting School of Engineering, Johns Hopkins University</span>
+                      <time class="education-time">Jan 2023</time>
+                      <div class="education-description">
+                          <ul>
+                              <li><b>Advisors:</b> Jaime Spangler, Aaron Wolman</li>
+                              <li><b>Thesis:</b> Development of a human iPSC derived microglia assay for evaluation of target dependent activation and pharmcological inhibition</li>
+                              <li><b>Leadership:</b> Graduate Student Liaison Committee (May 2021)</li>
+                          </ul>
+                      </div>
+                      <a href="https://drive.google.com/file/d/1sWwpjlDRYUNxWUsu3HAjoCycA_vsY1He/view" target="_blank" rel="noopener" class="read-thesis-btn">
+                          <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M14.707 7.793a1 1 0 00-1.414.0L11 10.086V1.5a1 1 0 00-2 0v8.586L6.707 7.793A1 1 0 105.293 9.207l4 4a1 1 0 001.416.0l4-4a1 1 0 00-.002-1.414z"></path>
+                              <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5.0 01-4.95.0L4.55 12H2a2 2 0 00-2 2v4a2 2 0 002 2h16a2 2 0 002-2v-4a2 2 0 00-2-2zm-3 5a1 1 0 110-2 1 1 0 010 2z"></path>
+                          </svg> Thesis Link
+                      </a>
+                  </li>
+                  <li class="timeline-item">
+                      <span class="timeline-icon-span">
+                          <svg fill="currentColor" viewBox="0 0 256 256" class="timeline-icon-svg">
+                              <path d="M251.76 88.94l-120-64a8 8 0 00-7.52.0l-120 64a8 8 0 000 14.12L32 117.87v48.42a15.91 15.91 0 004.06 10.65C49.16 191.53 78.51 216 128 216a130 130 0 0048-8.76V240a8 8 0 0016 0V199.51a115.63 115.63 0 0027.94-22.57A15.91 15.91 0 00224 166.29V117.87l27.76-14.81a8 8 0 000-14.12zM128 2e2c-43.27.0-68.72-21.14-80-33.71V126.4l76.24 40.66a8 8 0 007.52.0L176 143.47v46.34C163.4 195.69 147.52 2e2 128 2e2zm80-33.75a97.83 97.83 0 01-16 14.25V134.93l16-8.53zm-20-47.31-.22-.13-56-29.87a8 8 0 00-7.52 14.12L171 128l-43 22.93L25 96 128 41.07 231 96z"></path>
+                          </svg>
+                      </span>
+                      <h3 class="degree-title">B.Tech Biotechnology</h3>
+                      <span class="university-name">Department of Biotechnology, Savitribhai Phule Pune University</span>
+                      <time class="education-time">Oct 2020</time>
+                      <div class="education-description">
+                          <p><b>Advisors:</b> Shraddha Kulkurani</p>
+                          <p><b>Thesis:</b> Extraction and Application of Hydrophobin</p>
+                      </div>
+                      <a href="https://drive.google.com/file/d/1eNLEjMuYn74HPzqrTn3Ah9ZBl4gcQgwA/view" target="_blank" rel="noopener" class="read-thesis-btn">
+                        <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M14.707 7.793a1 1 0 00-1.414.0L11 10.086V1.5a1 1 0 00-2 0v8.586L6.707 7.793A1 1 0 105.293 9.207l4 4a1 1 0 001.416.0l4-4a1 1 0 00-.002-1.414z"></path>
+                            <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5.0 01-4.95.0L4.55 12H2a2 2 0 00-2 2v4a2 2 0 002 2h16a2 2 0 002-2v-4a2 2 0 00-2-2zm-3 5a1 1 0 110-2 1 1 0 010 2z"></path>
+                        </svg> Thesis Link
+                    </a>
+                  </li>
+              </ol>
+          </div>
+        </div>
+      </section>
+       <section id="section-resume-experience-container">
+         <div class="experience-wrapper">
+           <div class="w-full">
+               <h3 class="experience-title">Research Experience</h3>
+               <ol class="timeline">
+                   <li class="timeline-item">
+                       <span class="timeline-icon-span">
+                           <svg fill="currentColor" viewBox="0 0 256 256" class="timeline-icon-svg">
+                               <path d="M216 56H176V48a24 24 0 00-24-24H104A24 24 0 0080 48v8H40A16 16 0 0024 72V2e2a16 16 0 0016 16H216a16 16 0 0016-16V72A16 16 0 00216 56zM96 48a8 8 0 018-8h48a8 8 0 018 8v8H96zM216 72v41.61A184 184 0 01128 136a184.07 184.07.0 01-88-22.38V72zm0 128H40V131.64A200.19 200.19.0 00128 152a200.25 200.25.0 0088-20.37V2e2zM104 112a8 8 0 018-8h32a8 8 0 010 16H112a8 8 0 01-8-8z"></path>
+                           </svg>
+                       </span>
+                       <h3 class="job-title">Research Associate II, Center for the Development of Therapeutics (CDoT)</h3>
+                       <span class="company-name">The Broad Institute of MIT & Harvard</span>
+                       <time class="job-time">April 2023 – Present</time>
+                       <div class="job-description">
+                        <ul>
+                            <li>Executing a high-throughput <b>Cell Painting</b> screen using an automated pipeline with opera phenix, generating a large-scale morphological data set to identify novel, non-cytotoxic phenotypes in <b>Pediatric Cancer</b>. <a href="https://www.alexslemonade.org/project/cell-morphology-landscape-pediatric-cancer-cell-lines">A collaboration with Dr.Gregory Way - University of Colorado.</a></li>
+                            <li><b>Leadership:</b> Treasurer, Women at Broad (Sep 2025)</li>
+                         </ul>
+                       </div>
+                   </li>
+                   <li class="timeline-item">
+                       <span class="timeline-icon-span">
+                           <svg fill="currentColor" viewBox="0 0 256 256" class="timeline-icon-svg">
+                               <path d="M216 56H176V48a24 24 0 00-24-24H104A24 24 0 0080 48v8H40A16 16 0 0024 72V2e2a16 16 0 0016 16H216a16 16 0 0016-16V72A16 16 0 00216 56zM96 48a8 8 0 018-8h48a8 8 0 018 8v8H96zM216 72v41.61A184 184 0 01128 136a184.07 184.07.0 01-88-22.38V72zm0 128H40V131.64A200.19 200.19.0 00128 152a200.25 200.25.0 0088-20.37V2e2zM104 112a8 8 0 018-8h32a8 8 0 010 16H112a8 8 0 01-8-8z"></path>
+                           </svg>
+                       </span>
+                       <h3 class="job-title">Master Thesis Researcher, Discovery Neuroscience</h3>
+                       <span class="company-name">Merck</span>
+                       <time class="job-time">June 2022 – Jan 2023</time>
+                       <div class="job-description">
+                           <ul>
+                               <li>Engineered and validated an iPSC-derived microglia platform to quantify dose-dependent NLRP3 inflammasome inhibition, establishing a novel cellular model for CNS-specific neuroinflammation.</li>
+                           </ul>
+                       </div>
+                   </li>
+                   <li class="timeline-item">
+                    <span class="timeline-icon-span">
+                        <svg fill="currentColor" viewBox="0 0 256 256" class="timeline-icon-svg">
+                            <path d="M216 56H176V48a24 24 0 00-24-24H104A24 24 0 0080 48v8H40A16 16 0 0024 72V2e2a16 16 0 0016 16H216a16 16 0 0016-16V72A16 16 0 00216 56zM96 48a8 8 0 018-8h48a8 8 0 018 8v8H96zM216 72v41.61A184 184 0 01128 136a184.07 184.07.0 01-88-22.38V72zm0 128H40V131.64A200.19 200.19.0 00128 152a200.25 200.25.0 0088-20.37V2e2zM104 112a8 8 0 018-8h32a8 8 0 010 16H112a8 8 0 01-8-8z"></path>
+                        </svg>
+                    </span>
+                    <h3 class="job-title">Graduate Researcher</h3>
+                    <span class="company-name">The Brady Urological Institute at Johns Hopkins</span>
+                    <time class="job-time">Nov 2021 – May 2022</time>
+                    <div class="job-description">
+                        <ul>
+                            <li>Optimized 3D bioengineered bladder scaffolds to investigate the host immune response, quantifying cellular infiltration and spatial distribution through advanced imaging analysis.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon-span">
+                        <svg fill="currentColor" viewBox="0 0 256 256" class="timeline-icon-svg">
+                            <path d="M216 56H176V48a24 24 0 00-24-24H104A24 24 0 0080 48v8H40A16 16 0 0024 72V2e2a16 16 0 0016 16H216a16 16 0 0016-16V72A16 16 0 00216 56zM96 48a8 8 0 018-8h48a8 8 0 018 8v8H96zM216 72v41.61A184 184 0 01128 136a184.07 184.07.0 01-88-22.38V72zm0 128H40V131.64A200.19 200.19.0 00128 152a200.25 200.25.0 0088-20.37V2e2zM104 112a8 8 0 018-8h32a8 8 0 010 16H112a8 8 0 01-8-8z"></path>
+                        </svg>
+                    </span>
+                    <h3 class="job-title">Graduate Biospecimen Manager</h3>
+                    <span class="company-name">Bayview Medical Centre at Johns Hopkins</span>
+                    <time class="job-time">Nov 2021 – May 2022</time>
+                    <div class="job-description">
+                        <ul>
+                            <li>Managed a clinical biorepository for neurological research, leveraging a <b>LIMS</b> (Freezerpro) to ensure the integrity of key samples (CSF, plasma, serum) and enhance data quality.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon-span">
+                        <svg fill="currentColor" viewBox="0 0 256 256" class="timeline-icon-svg">
+                            <path d="M216 56H176V48a24 24 0 00-24-24H104A24 24 0 0080 48v8H40A16 16 0 0024 72V2e2a16 16 0 0016 16H216a16 16 0 0016-16V72A16 16 0 00216 56zM96 48a8 8 0 018-8h48a8 8 0 018 8v8H96zM216 72v41.61A184 184 0 01128 136a184.07 184.07.0 01-88-22.38V72zm0 128H40V131.64A200.19 200.19.0 00128 152a200.25 200.25.0 0088-20.37V2e2zM104 112a8 8 0 018-8h32a8 8 0 010 16H112a8 8 0 01-8-8z"></path>
+                        </svg>
+                    </span>
+                    <h3 class="job-title">Undergraduate Researcher</h3>
+                    <span class="company-name">University of Pune</span>
+                    <time class="job-time">May 2019 – May 2020</time>
+                    <div class="job-description">
+                        <ul>
+                            <li>Systematically improved the yield and purity of Hydrophobin protein by developing a data-driven framework to optimize the entire production pipeline, from upstream fermentation to downstream purification.</li>
+                        </ul>
+                    </div>
+                </li>
+               </ol>
+           </div>
+         </div>
+       </section>
+       <section id="section-resume-projects-container">
+        <div class="projects-wrapper">
+          <h2 class="projects-title">Projects</h2>
+          <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <div class="project-logo">
+                  <img src="https://placehold.co/100x100/7C3AED/FFFFFF?text=BE" alt="BoomExtractor Logo" />
+                </div>
+                <div class="project-content">
+                  <a href="https://github.com/tsa87/BoomExtractor" target="_blank" rel="noopener">
+                    <h3 class="project-name">BoomExtractor - AI-Powered Scientific Workflow Visualization</h3>
+                  </a>
+                  <div class="project-meta">Broad Hackathon 2025</div>
+                  <div class="project-description">
+                      <ul>
+                          <li><a href="https://sites.google.com/broadinstitute.org/coderats/broadhacks/broadhacks-2025">Awarded BroadHacks Best Overall Project and the People's Choice award.</a></li>
+                          <li>Led the end-to-end development of an AI-driven tool to accelerate research comprehension by automatically generating scientifically-validated experimental workflow diagrams from papers using <b>Python, Gemini AI,</b> and <b>React</b>.</li>
+                      </ul>
+                  </div>
+                  <a href="https://docs.google.com/presentation/d/1UbBHLM_NPpPO3jWc8eBZ2J-47_iSfQUAAblDku2jzXc/edit?usp=sharing" target="_blank" class="view-project-btn">
+                    View Slides
+                    <svg fill="none" viewBox="0 0 18 18"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.111 8.889l7.778-7.778M15 11v4.833A1.167 1.167 0 0113.833 17H2.167A1.167 1.167 0 011 15.833V4.167A1.166 1.166 0 012.167 3h4.618m4.447-2H17v5.768"></path></svg>
+                  </a>
+                </div>
+              </div>
+            <!-- Project Card 2 -->
+            <div class="project-card">
+              <div class="project-logo">
+                <img src="https://placehold.co/100x100/F97316/FFFFFF?text=MIT" alt="MIT-IDSS Logo" />
+              </div>
+              <div class="project-content">
+                <a href="https://github.com/christybiji/MIT-IDSS-Recommendation-System/blob/main/Recommendation_Systems_Learner_Notebook_Full_Code.ipynb" target="_blank" rel="noopener">
+                  <h3 class="project-name">MIT-IDSS-Recommendation-System</h3>
+                </a>
+                <div class="project-meta">Course: Recommendation Systems</div>
+                <p class="project-description">
+                  Engineered an end-to-end recommendation system by benchmarking collaborative filtering models (User-User, SVD) and optimizing the top-performing <b>SVD model</b> with `GridSearchCV` to achieve a final <b>RMSE of 0.88</b>.
+                </p>
+                 <a href="https://github.com/christybiji/MIT-IDSS-Recommendation-System/blob/main/Recommendation_Systems_Learner_Notebook_Full_Code.ipynb" target="_blank" class="view-project-btn">
+                  View Project
+                  <svg fill="none" viewBox="0 0 18 18"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.111 8.889l7.778-7.778M15 11v4.833A1.167 1.167 0 0113.833 17H2.167A1.167 1.167 0 011 15.833V4.167A1.166 1.166 0 012.167 3h4.618m4.447-2H17v5.768"></path></svg>
+                </a>
+              </div>
+            </div>
+             <!-- Project Card 3 -->
+             <div class="project-card">
+                <div class="project-logo">
+                  <img src="https://placehold.co/100x100/F97316/FFFFFF?text=MIT" alt="MIT-IDSS Logo" />
+                </div>
+                <div class="project-content">
+                  <a href="https://github.com/christybiji/MIT-IDSS-Lead-Scoring-Model" target="_blank" rel="noopener">
+                    <h3 class="project-name">MIT-IDSS-Lead-Scoring-Model</h3>
+                  </a>
+                  <div class="project-meta">Course: Classification and Hypothesis Testing</div>
+                  <p class="project-description">
+                    Developed an end-to-end lead scoring pipeline by tuning multiple classifiers (<b>Random Forest</b>, Decision Tree) with GridSearchCV to optimize for recall (>82%), enabling data-driven prioritization of high-potential sales leads.
+                  </p>
+                   <a href="https://github.com/christybiji/MIT-IDSS-Lead-Scoring-Model" target="_blank" class="view-project-btn">
+                    View Project
+                    <svg fill="none" viewBox="0 0 18 18"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.111 8.889l7.778-7.778M15 11v4.833A1.167 1.167 0 0113.833 17H2.167A1.167 1.167 0 011 15.833V4.167A1.166 1.166 0 012.167 3h4.618m4.447-2H17v5.768"></path></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Project Card 4 -->
+            <div class="project-card">
+                <div class="project-logo">
+                  <img src="https://placehold.co/100x100/F97316/FFFFFF?text=MIT" alt="MIT-IDSS Logo" />
+                </div>
+                <div class="project-content">
+                  <a href="https://github.com/christybiji/MIT-IDSS-Customer-Segmentation/blob/main/Learner_Fullcode_Notebook.ipynb" target="_blank" rel="noopener">
+                    <h3 class="project-name">MIT IDSS Project: Customer Personality Segmentation</h3>
+                  </a>
+                  <div class="project-meta">Course: Making Sense of Unstructured Data</div>
+                  <p class="project-description">
+                    Applied unsupervised learning (<b>K-Means</b>, PCA) to segment a retail customer database, identifying and profiling distinct high-value and low-value personas to inform targeted marketing and retention strategies.
+                  </p>
+                   <a href="https://github.com/christybiji/MIT-IDSS-Customer-Segmentation/blob/main/Learner_Fullcode_Notebook.ipynb" target="_blank" class="view-project-btn">
+                    View Project
+                    <svg fill="none" viewBox="0 0 18 18"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.111 8.889l7.778-7.778M15 11v4.833A1.167 1.167 0 0113.833 17H2.167A1.167 1.167 0 011 15.833V4.167A1.166 1.166 0 012.167 3h4.618m4.447-2H17v5.768"></path></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Project Card 5 -->
+            <div class="project-card">
+                <div class="project-logo">
+                  <img src="https://placehold.co/100x100/EF4444/FFFFFF?text=TE" alt="Tissue Engineering Logo" />
+                </div>
+                <div class="project-content">
+                  <a href="https://drive.google.com/file/d/1n1EknQuvMJ0atfk0cJCJgjuuSYsp3M5M/view" target="_blank" rel="noopener">
+                    <h3 class="project-name">Knockout NEU3 gene target with CRISPR-Cas9</h3>
+                  </a>
+                  <div class="project-meta">Tissue Engineering Lab</div>
+                  <p class="project-description">
+                    Engineered a CRISPR-Cas9 gene-editing tool to knock out the sialidase Neu3 in CHO cells, a strategy aimed at increasing the sialylation and therapeutic half-life of recombinant hIFNγ.
+                  </p>
+                   <a href="https://drive.google.com/file/d/1n1EknQuvMJ0atfk0cJCJgjuuSYsp3M5M/view" target="_blank" class="view-project-btn">
+                    View Report
+                    <svg fill="none" viewBox="0 0 18 18"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.111 8.889l7.778-7.778M15 11v4.833A1.167 1.167 0 0113.833 17H2.167A1.167 1.167 0 011 15.833V4.167A1.166 1.166 0 012.167 3h4.618m4.447-2H17v5.768"></path></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Project Card 6 -->
+            <div class="project-card">
+                <div class="project-logo">
+                  <img src="https://placehold.co/100x100/EF4444/FFFFFF?text=TE" alt="Tissue Engineering Logo" />
+                </div>
+                <div class="project-content">
+                  <a href="https://drive.google.com/file/d/184fPx2q_aPhLVmmhzl4-i1ZAozL0MHJV/view" target="_blank" rel="noopener">
+                    <h3 class="project-name">Engineering Lungs with mtDNA-Edited iPSCs</h3>
+                  </a>
+                  <div class="project-meta">Tissue Engineering Group Project</div>
+                  <p class="project-description">
+                    Proposed a novel framework for lung bioengineering combining decellularized scaffolds with autologous, <b>mtDNA-edited iPSCs</b> to prevent transplant rejection and expand the donor organ pool.
+                  </p>
+                   <a href="https://drive.google.com/file/d/184fPx2q_aPhLVmmhzl4-i1ZAozL0MHJV/view" target="_blank" class="view-project-btn">
+                    View Report
+                    <svg fill="none" viewBox="0 0 18 18"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.111 8.889l7.778-7.778M15 11v4.833A1.167 1.167 0 0113.833 17H2.167A1.167 1.167 0 011 15.833V4.167A1.166 1.166 0 012.167 3h4.618m4.447-2H17v5.768"></path></svg>
+                  </a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+      <section id="section-resume-skills-container">
+        <div class="skills-wrapper">
+          <h2 class="skills-title">Computational & Quantitative Skills</h2>
+          <div class="skills-grid">
+            <!-- Technical Skills Column -->
+            <div class="skill-category-card">
+              <h3 class="skill-category-title">Machine Learning & Statistical Modeling</h3>
+              <ul class="skills-list">
+                <li class="skill-item">Classification (Logistic Regression, Random Forests)</li>
+                <li class="skill-item">Clustering (k-means, Hierarchical)</li>
+                <li class="skill-item">Dimensionality reduction (PCA, UMAP)</li>
+                <li class="skill-item">Statistical inference</li>
+                <li class="skill-item">Hypothesis testing</li>
+              </ul>
+            </div>
+            <!-- Hobbies & Interests Column -->
+            <div class="skill-category-card">
+              <h3 class="skill-category-title">Bioimage & High-Content Data Analysis</h3>
+              <ul class="skills-list">
+                <li class="skill-item">High-content screening workflows</li>
+                <li class="skill-item">Quantitative morphological profiling (CellProfiler, ImageJ, Cellpose)</li>
+                <li class="skill-item">Large-scale data analysis (Genedata Screener, LIMS)</li>
+              </ul>
+            </div>
+            <div class="skill-category-card">
+                <h3 class="skill-category-title">Programming & Software</h3>
+                <ul class="skills-list">
+                  <li class="skill-item">Python (Pandas, Scikit-learn, Matplotlib)</li>
+                  <li class="skill-item">R (Tidyverse)</li>
+                  <li class="skill-item">MATLAB</li>
+                  <li class="skill-item">Java</li>
+                  <li class="skill-item">Git version control</li>
+                  <li class="skill-item">Terra cloud computing</li>
+                </ul>
+              </div>
+              <div class="skill-category-card">
+                <h3 class="skill-category-title">Experimental Biology Foundation</h3>
+                <ul class="skills-list">
+                  <li class="skill-item">Mammalian cell culture</li>
+                  <li class="skill-item">Cell Painting</li>
+                  <li class="skill-item">ELISA</li>
+                  <li class="skill-item">High Throughput multiplexed screening</li>
+                  <li class="skill-item">Dose-response profiling</li>
+                  <li class="skill-item">Immunocytochemistry (ICC)</li>
+                  <li class="skill-item">BSL2+/BSL2</li>
+                  <li class="skill-item">Automated screening instrumentation</li>
+                </ul>
+              </div>
+          </div>
+</section>
+<section id="section-resume-awards-container">
+    <div class="awards-wrapper">
+      <h2 class="awards-title">Certifications & Awards</h2>
+      <div class="awards-grid">
+        <div class="award-card">
+            <div class="award-logo">
+              <img src="https://placehold.co/100x100/3B82F6/FFFFFF?text=C" alt="Certification" />
+            </div>
+            <div class="award-content">
+                <h3 class="award-name">Courses and Certifications</h3>
+                <div class="award-description">
+                    <ul>
+                        <li><a href="#" class="certificate-link"><b>Image Data Analysis Bootcamp</b> - Cimini lab, The Broad Institute (Aug 2025)</a></li>
+                        <li><a href="https://www.mygreatlearning.com/certificate/KEJLXHAA" class="certificate-link"><b>Data Science and Machine Learning: Making Data-Driven Decisions</b> - MIT IDSS (Jan 2025)</a></li>
+                        <li><a href="https://drive.google.com/file/d/1dbjbXRwYTykrygi79dVgZWwPs_eTf4zv/view?usp=sharing" class="certificate-link"><b>Mathematical Statistics (Graduate-Level)</b> - Harvard University Extension School (Dec 2024)</a></li>
+                        <li><a href="https://www.coursera.org/account/accomplishments/verify/8YTR7DRRSZAT" class="certificate-link"><b>Introduction to the Biology of Cancer</b> - Johns Hopkins University, Coursera (July 2020)</a></li>
+                        <li><a href="https://www.coursera.org/account/accomplishments/verify/BSXVNRN5BUYE" class="certificate-link"><b>Genes and the Human Condition</b> - University of Maryland, Coursera (June 2020)</a></li>
+                        <li><a href="https://www.coursera.org/account/accomplishments/verify/76QD38SE7QV7" class="certificate-link"><b>Antimicrobial resistance - theory and methods</b> - Technical University of Denmark, Coursera (June 2020)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+   <div class="page-footer">
+       <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+           <p class="powered-by text-center">© 2024 Christy Biji. Credits to 
+           <a href="https://resume-theme.netlify.app/" target="_blank" rel="noopener">Hugo Blox Builder</a> and 
+           <a href="https://codepen.io/Zaku/pen/AobWbm" target="_blank" rel="noopener">Particle Slide Codepen by Tamino Martinius</a>
+         </p>
+    </footer>
+   </div>
+   <script>
+       const canvas = document.getElementById('particleCanvas');
+       const ctx = canvas.getContext('2d');
+       const mouse = { x: null, y: null, radius: 150 };
+
+       class Particle {
+           constructor(x, y, color) {
+               this.x = x; this.y = y;
+               this.tx = x; this.ty = y;
+               this.vx = 0; this.vy = 0;
+               this.size = 2; this.color = color;
+           }
+           update() {
+               const dx = this.x - mouse.x;
+               const dy = this.y - mouse.y;
+               const dist = Math.sqrt(dx * dx + dy * dy);
+               if (dist < mouse.radius) {
+                   const forceDirectionX = dx / dist;
+                   const forceDirectionY = dy / dist;
+                   const maxForce = 50;
+                   const force = (mouse.radius - dist) / mouse.radius * maxForce;
+                   this.vx += forceDirectionX * force;
+                   this.vy += forceDirectionY * force;
+               }
+               this.vx += (this.tx - this.x) * 0.02;
+               this.vy += (this.ty - this.y) * 0.02;
+               this.vx *= 0.95; this.vy *= 0.95;
+               this.x += this.vx; this.y += this.vy;
+           }
+           draw() {
+               ctx.fillStyle = this.color;
+               ctx.beginPath();
+               ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+               ctx.fill();
+           }
+       }
+
+       let particles = [];
+       let currentPhraseIndex = 0;
+       const greetings = ["Hello Welcome!", "¡Hola, Bienvenido!", "こんにちは、ようこそ！", "Bonjour, Bienvenue!", "Hallo, Willkommen!", "你好，欢迎！", "नमस्ते, स्वागत है!", "ഹലോ, സ്വാഗതം!"];
+
+       function init() {
+           canvas.width = window.innerWidth;
+           canvas.height = window.innerHeight;
+           const tempCanvas = document.createElement('canvas');
+           const tempCtx = tempCanvas.getContext('2d');
+           const logoText = greetings[currentPhraseIndex];
+           const fontSize = Math.min(canvas.width, canvas.height) /6 + (window.innerWidth /140);
+           tempCanvas.width = canvas.width;
+           tempCanvas.height = canvas.height;
+           tempCtx.font = `bold ${fontSize}px Inter, sans-serif`;
+           tempCtx.textAlign = 'center';
+           tempCtx.textBaseline = 'middle';
+           tempCtx.fillStyle = '#000';
+           tempCtx.fillText(logoText, tempCanvas.width / 2, tempCanvas.height / 2);
+           const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+           particles = [];
+           for (let y = 0; y < imageData.height; y += 4) {
+               for (let x = 0; x < imageData.width; x += 4) {
+                   if (imageData.data[(y * imageData.width + x) * 4 + 3] > 0) {
+                       const p = new Particle(Math.random() * canvas.width, Math.random() * canvas.height, '#000');
+                       p.tx = x; p.ty = y;
+                       particles.push(p);
+                   }
+               }
+           }
+       }
+
+       function animate() {
+           ctx.clearRect(0, 0, canvas.width, canvas.height);
+           particles.forEach(p => { p.update(); p.draw(); });
+           requestAnimationFrame(animate);
+       }
+      
+       function changePhrase() {
+           currentPhraseIndex = (currentPhraseIndex + 1) % greetings.length;
+           init();
+       }
+
+       window.addEventListener('mousemove', (event) => { mouse.x = event.x; mouse.y = event.y; });
+       window.addEventListener('resize', init);
+
+       window.onload = function() {
+           init();
+           animate();
+           setInterval(changePhrase, 15000);
+       };
+   </script>
+</body>
+</html>

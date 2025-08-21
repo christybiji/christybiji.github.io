@@ -1,5 +1,0 @@
-This directory is for downloadable files like:
-- resume.pdf (CV/Resume)
-- thesis.pdf (Academic thesis)
-
-Please add your own PDF files to replace these placeholders.
