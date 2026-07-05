@@ -1,0 +1,14 @@
+<div class="showcase-photo">
+    <div class="showcase-photo-frame{% if include.orientation == 'landscape' %} showcase-photo-frame--landscape{% endif %}{% if include.caption %} rounded-xl-top{% else %} rounded-xl{% endif %}">
+        <img
+            data-src="{{ include.image | relative_url }}"
+            class="lazy showcase-photo-image{% if include.orientation == 'landscape' %} showcase-photo-image--landscape{% endif %}"
+            src="{{ '/assets/images/empty_300x200.png' | relative_url }}"
+            alt="{{ include.alt | default: include.caption }}">
+    </div>
+    {% if include.caption %}
+    <div class="showcase-photo-caption">
+        <div class="showcase-photo-title">{{ include.caption }}</div>
+    </div>
+    {% endif %}
+</div>
