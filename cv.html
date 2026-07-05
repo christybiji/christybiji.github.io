@@ -1,0 +1,37 @@
+---
+layout: default
+title: CV
+navbar_title: CV
+container_class: container-fluid cv-page-container
+---
+
+{% if site.data.profile.cv_link %}
+<div class="row">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm bg-white cv-viewer-card">
+            <div class="cv-viewer-toolbar d-flex align-items-center px-3 py-2 border-bottom">
+                <span class="font-weight-bold">Curriculum Vitae</span>
+                <a class="btn btn-sm btn-outline-secondary ml-auto" href="{{ site.data.profile.cv_link | relative_url }}" target="_blank" rel="noopener">
+                    <i class="fas fa-external-link-alt"></i> Open in new tab
+                </a>
+                <a class="btn btn-sm btn-outline-primary ml-2" href="{{ site.data.profile.cv_link | relative_url }}" download>
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+            <iframe
+                class="cv-viewer-frame"
+                src="{{ site.data.profile.cv_link | relative_url }}#toolbar=1&navpanes=1&scrollbar=1&view=FitH"
+                title="Curriculum Vitae PDF">
+            </iframe>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="row">
+    <div class="col-12">
+        <div class="alert alert-warning mb-0">
+            Add your CV by placing a PDF at <code>assets/files/cv.pdf</code> and setting <code>cv_link</code> in <code>_data/profile.yml</code>.
+        </div>
+    </div>
+</div>
+{% endif %}

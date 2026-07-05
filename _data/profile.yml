@@ -1,0 +1,67 @@
+primary_name: "Christy Biji"
+secondary_name: ""
+navbar_name: "Christy Biji"
+
+positions:
+- name: Research Associate
+- name: The Broad Institute of MIT & Harvard
+
+email: "biji@broadinstitute.org"
+github: christybiji
+linkedin: christybiji
+orcid: 0009-0007-4457-4734
+
+short_bio_text_justify: false
+short_bio: >-
+  <p>
+    I currently work at the Broad Institute of MIT and Harvard, where I engineer and automate
+    high-throughput screening platforms to accelerate drug discovery. I'm passionate about
+    integrating complex experimental data with computational analysis to uncover therapeutic
+    strategies for challenging diseases, with the ultimate goal of delivering new treatments to patients.
+  </p>
+
+portrait_url: /assets/images/photos/portrait.jpg
+cv_link: /assets/files/cv.pdf
+# portrait_caption: >-
+#   Photo caption (optional).
+
+education:
+- name: Johns Hopkins University
+  dept: Whiting School of Engineering
+  position: >-
+    MS in Chemical and Biomolecular Engineering<br/>
+    Advisors: Jaime Spangler, Aaron Wolman<br/>
+    Thesis: Development of a human iPSC derived microglia assay for evaluation of target dependent activation and pharmacological inhibition<br/>
+    Leadership: Graduate Student Liaison Committee (May 2021)
+  date: Jan 2023
+- name: Savitribhai Phule Pune University
+  dept: Department of Biotechnology
+  position: >-
+    B.Tech Biotechnology<br/>
+    Advisors: Shraddha Kulkurani<br/>
+    Thesis: Extraction and Application of Hydrophobin
+  date: Oct 2020
+
+experience:
+- name: The Broad Institute of MIT & Harvard
+  dept: Center for the Development of Therapeutics (CDoT)
+  position: >-
+    Research Associate II<br/>
+    Executing a high-throughput Cell Painting screen using an automated pipeline with Opera Phenix, generating a large-scale morphological data set to identify novel, non-cytotoxic phenotypes in Pediatric Cancer (collaboration with Dr. Gregory Way, University of Colorado).
+  date: Apr 2023 – Present
+- name: Merck
+  dept: Discovery Neuroscience
+  position: >-
+    Master Thesis Researcher<br/>
+    Engineered and validated an iPSC-derived microglia platform to quantify dose-dependent NLRP3 inflammasome inhibition, establishing a novel cellular model for CNS-specific neuroinflammation.
+  date: Jun 2022 – Jan 2023
+- name: Bayview Medical Centre at Johns Hopkins
+  position: >-
+    Graduate Biospecimen Manager<br/>
+    Managed a clinical biorepository for neurological research, leveraging a LIMS (Freezerpro) to ensure the integrity of key samples (CSF, plasma, serum) and enhance data quality.
+  date: Nov 2021 – May 2022
+- name: University of Pune
+  position: >-
+    Undergraduate Researcher<br/>
+    Systematically improved the yield and purity of Hydrophobin protein by developing a data-driven framework to optimize the entire production pipeline, from upstream fermentation to downstream purification.
+  date: May 2019 – May 2020
