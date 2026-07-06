@@ -23,6 +23,14 @@ navbar_title: Home
     {% include widgets/experience_card.html %}
 {% endif %}
 
+{% if site.data.display.homepage.show_leadership_services and site.data.profile.leadership_services %}
+    {% include widgets/profile_section_card.html title="Leadership and Services" items=site.data.profile.leadership_services %}
+{% endif %}
+
+{% if site.data.display.homepage.show_courses_certification and site.data.profile.courses_certification %}
+    {% include widgets/profile_section_card.html title="Courses and Certification" items=site.data.profile.courses_certification %}
+{% endif %}
+
 {% if site.data.display.homepage.show_news %}
     {% assign count_news = site.news | size %}
     {% if count_news > 0 %}

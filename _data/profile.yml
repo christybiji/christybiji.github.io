@@ -31,8 +31,7 @@ education:
   position: >-
     MS in Chemical and Biomolecular Engineering<br/>
     Advisors: Jaime Spangler, Aaron Wolman<br/>
-    Thesis: Development of a human iPSC derived microglia assay for evaluation of target dependent activation and pharmacological inhibition<br/>
-    Leadership: Graduate Student Liaison Committee (May 2021)
+    Thesis: Development of a human iPSC derived microglia assay for evaluation of target dependent activation and pharmacological inhibition
   date: Jan 2023
 - name: Savitribhai Phule Pune University
   dept: Department of Biotechnology
@@ -47,8 +46,7 @@ experience:
   name: The Broad Institute of MIT & Harvard
   dept: Center for the Development of Therapeutics (CDoT)
   description: >-
-    Executing a high-throughput Cell Painting screen using an automated pipeline with Opera Phenix, generating a large-scale morphological data set to identify novel, non-cytotoxic phenotypes in Pediatric Cancer (collaboration with Dr. Gregory Way, University of Colorado).<br/>
-    Leadership: Treasurer, Women at Broad (Sep 2025)
+    Executing a high-throughput Cell Painting screen using an automated pipeline with Opera Phenix, generating a large-scale morphological data set to identify novel, non-cytotoxic phenotypes in Pediatric Cancer (collaboration with Dr. Gregory Way, University of Colorado).
   date: Apr 2023 – Present
 - title: Graduate Researcher
   name: Merck
@@ -66,3 +64,37 @@ experience:
   description: >-
     Systematically improved the yield and purity of Hydrophobin protein by developing a data-driven framework to optimize the entire production pipeline, from upstream fermentation to downstream purification.
   date: May 2019 – May 2020
+
+leadership_services:
+- title: Treasurer, Women at Broad
+  org: The Broad Institute
+  date: Sep 2025
+- title: Spot Award — awarded for excellence in the service of the department
+  org: CDoT, The Broad Institute of MIT and Harvard
+  date: May 2025
+- title: Graduate Student Liaison Committee
+  org: Whiting School of Engineering — Johns Hopkins University
+  date: May 2021
+
+courses_certification:
+- title: "Data Science and Machine Learning: Making Data-Driven Decisions"
+  org: MIT Institute for Data, Systems, and Society (IDSS)
+  date: Jan 2025
+  link: https://www.mygreatlearning.com/certificate/KEJLXHAA
+- title: Mathematical Statistics (Graduate-Level Coursework)
+  org: Harvard University Extension School
+  note: "Grade: A"
+  date: Dec 2024
+  link: https://drive.google.com/file/d/1dbjbXRwYTykrygi79dVgZWwPs_eTf4zv/view?usp=sharing
+- title: Introduction to the Biology of Cancer
+  org: Johns Hopkins University, Coursera
+  date: Jul 2020
+  link: https://www.coursera.org/account/accomplishments/verify/8YTR7DRRSZAT
+- title: Genes and the Human Condition (From Behavior to Biotechnology)
+  org: University of Maryland, Coursera
+  date: Jun 2020
+  link: https://www.coursera.org/account/accomplishments/verify/BSXVNRN5BUYE
+- title: Antimicrobial Resistance — Theory and Methods
+  org: Technical University of Denmark, Coursera
+  date: Jun 2020
+  link: https://www.coursera.org/account/accomplishments/verify/76QD38SE7QV7
