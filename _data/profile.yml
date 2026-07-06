@@ -43,26 +43,26 @@ education:
   date: Oct 2020
 
 experience:
-- name: The Broad Institute of MIT & Harvard
+- title: Research Associate II
+  name: The Broad Institute of MIT & Harvard
   dept: Center for the Development of Therapeutics (CDoT)
-  position: >-
-    Research Associate II<br/>
+  description: >-
     Executing a high-throughput Cell Painting screen using an automated pipeline with Opera Phenix, generating a large-scale morphological data set to identify novel, non-cytotoxic phenotypes in Pediatric Cancer (collaboration with Dr. Gregory Way, University of Colorado).<br/>
     Leadership: Treasurer, Women at Broad (Sep 2025)
   date: Apr 2023 – Present
-- name: Merck
+- title: Master Thesis Researcher
+  name: Merck
   dept: Discovery Neuroscience
-  position: >-
-    Master Thesis Researcher<br/>
+  description: >-
     Engineered and validated an iPSC-derived microglia platform to quantify dose-dependent NLRP3 inflammasome inhibition, establishing a novel cellular model for CNS-specific neuroinflammation.
   date: Jun 2022 – Jan 2023
-- name: Bayview Medical Centre at Johns Hopkins
-  position: >-
-    Graduate Biospecimen Manager<br/>
+- title: Graduate Biospecimen Manager
+  name: Bayview Medical Centre at Johns Hopkins
+  description: >-
     Managed a clinical biorepository for neurological research, leveraging a LIMS (Freezerpro) to ensure the integrity of key samples (CSF, plasma, serum) and enhance data quality.
   date: Nov 2021 – May 2022
-- name: University of Pune
-  position: >-
-    Undergraduate Researcher<br/>
+- title: Undergraduate Researcher
+  name: University of Pune
+  description: >-
     Systematically improved the yield and purity of Hydrophobin protein by developing a data-driven framework to optimize the entire production pipeline, from upstream fermentation to downstream purification.
   date: May 2019 – May 2020

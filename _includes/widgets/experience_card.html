@@ -11,10 +11,12 @@
                                 {% for item in site.data.profile.experience %}
                                 <li class="mb-1">
                                     <div>
-                                        <div>{{ item.name }}</div>
+                                        <div>{{ item.title }} @ {{ item.name }}</div>
+                                        {% if item.dept %}
                                         <div class="small">{{ item.dept }}</div>
+                                        {% endif %}
                                         <div class="small d-flex">
-                                            <div>{{ item.position }}</div>
+                                            <div>{{ item.description }}</div>
                                             <div class="mt-auto ml-auto no-break"><em>{{ item.date }}</em></div>
                                         </div>
                                     </div>
