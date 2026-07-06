@@ -1,15 +1,11 @@
-<footer class="footer border-top py-2 mt-5 bg-white small">
+<footer class="footer border-top py-3 mt-5 bg-white small">
     <div class="{% if page.container_class %}{{ page.container_class }}{% else %}container-lg{% endif %}">
-        <div class="row my-3">
-            <div class="col-6">
-                <div class="text-muted">
-                    <i>Last updated: {{ "now" | date: "%b %Y" }}</i>
-                </div>
+        <div class="row my-2 align-items-center">
+            <div class="col-md-6 col-12 text-muted mb-2 mb-md-0">
+                <i>Last updated: {{ "now" | date: "%b %Y" }}</i>
             </div>
-            <div class="col-6">
-                <div class="text-right text-muted">
-                    {{ site.data.display.footer_text }}
-                </div>
+            <div class="col-md-6 col-12 text-md-right text-muted">
+                {{ site.data.display.footer_text }}
             </div>
         </div>
     </div>
