@@ -6,27 +6,67 @@ body_attr: >-
   data-spy="scroll" data-target="#navbar-year" data-offset="100"
 ---
 
-{% assign blogs_by_year = site.posts | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
+{% assign project_posts = site.posts | where_exp: "item", "item.tags contains 'Projects'" | sort: "date" | reverse %}
+{% assign profile_projects = site.data.profile.projects | sort: "sort_date" | reverse %}
+{% assign years = "2025,2023,2021" | split: "," %}
 
 <div class="row">
     <div class="col-12 col-lg-10">
-        {% for year in blogs_by_year %}
-        {% assign num_blogs = year.items | size %}
-        <h2 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h2>
+        {% for year in years %}
+        {% assign year_has_content = false %}
+        {% for item in profile_projects %}
+            {% assign item_year = item.year | append: "" %}
+            {% if item_year == year %}
+                {% assign year_has_content = true %}
+            {% endif %}
+        {% endfor %}
+        {% for item in project_posts %}
+            {% assign post_year = item.date | date: "%Y" %}
+            {% if post_year == year %}
+                {% assign year_has_content = true %}
+            {% endif %}
+        {% endfor %}
+
+        {% if year_has_content %}
+        <h2 class="pt-4" id="year-{{ year }}">{{ year }}</h2>
         <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
-            {% for item in year.items %}
-                {% include widgets/blog_card.html item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
+            {% for item in profile_projects %}
+                {% assign item_year = item.year | append: "" %}
+                {% if item_year == year %}
+                    {% include widgets/project_item.html item=item %}
+                {% endif %}
+            {% endfor %}
+            {% for item in project_posts %}
+                {% assign post_year = item.date | date: "%Y" %}
+                {% if post_year == year %}
+                    {% include widgets/blog_card.html item=item hide_bottom_border=forloop.last %}
+                {% endif %}
             {% endfor %}
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 
     <div class="col-2 d-none d-lg-block">
         <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
-            {% for year in blogs_by_year %}
-            <a class="nav-link d-block" href="#year-{{ year.name }}">{{ year.name }}</a>
+            {% for year in years %}
+            {% assign year_has_content = false %}
+            {% for item in profile_projects %}
+                {% assign item_year = item.year | append: "" %}
+                {% if item_year == year %}
+                    {% assign year_has_content = true %}
+                {% endif %}
+            {% endfor %}
+            {% for item in project_posts %}
+                {% assign post_year = item.date | date: "%Y" %}
+                {% if post_year == year %}
+                    {% assign year_has_content = true %}
+                {% endif %}
+            {% endfor %}
+            {% if year_has_content %}
+            <a class="nav-link d-block" href="#year-{{ year }}">{{ year }}</a>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
-
 </div>

@@ -68,7 +68,7 @@ experience:
 leadership_services:
 - title: Treasurer, Women at Broad
   org: The Broad Institute
-  date: Sep 2025
+  date: Jan 2026
 - title: Spot Award — awarded for excellence in the service of the department
   org: CDoT, The Broad Institute of MIT and Harvard
   date: May 2025
@@ -98,3 +98,67 @@ courses_certification:
   org: Technical University of Denmark, Coursera
   date: Jun 2020
   link: https://www.coursera.org/account/accomplishments/verify/76QD38SE7QV7
+
+projects:
+- title: BoomExtractor — AI-Powered Scientific Workflow Visualization
+  subtitle: Broad Hackathon 2025
+  year: 2025
+  sort_date: 2025-10-01
+  date: "2025"
+  links:
+    GitHub: https://github.com/tsa87/BoomExtractor
+    Slides: https://docs.google.com/presentation/d/1UbBHLM_NPpPO3jWc8eBZ2J-47_iSfQUAAblDku2jzXc/edit?usp=sharing
+    BroadHacks: https://sites.google.com/broadinstitute.org/coderats/broadhacks/broadhacks-2025
+  highlights:
+  - >-
+    <strong>Awarded BroadHacks Best Overall Project and the People's Choice award.</strong>
+    (<a href="https://sites.google.com/broadinstitute.org/coderats/broadhacks/broadhacks-2025" target="_blank" rel="noopener">Link</a>)
+  - >-
+    Led the end-to-end development of an AI-driven tool to accelerate research comprehension by automatically generating scientifically-validated experimental workflow diagrams from papers using <strong>Python, Gemini AI,</strong> and <strong>React</strong>.
+- title: MIT IDSS — Data Science and Machine Learning
+  subtitle: Course projects from the MIT IDSS program
+  year: 2025
+  sort_date: 2025-01-15
+  date: Jan 2025
+  subprojects:
+  - title: MIT-IDSS-Recommendation-System
+    subtitle: Recommendation Systems
+    links:
+      Project Link: https://github.com/christybiji/MIT-IDSS-Recommendation-System/blob/main/Recommendation_Systems_Learner_Notebook_Full_Code.ipynb
+    highlights:
+    - >-
+      Engineered an end-to-end recommendation system by benchmarking collaborative filtering models (User-User, SVD) and optimizing the top-performing <strong>SVD model</strong> with <code>GridSearchCV</code> to achieve a final <strong>RMSE of 0.88</strong>.
+  - title: MIT-IDSS-Lead-Scoring-Model
+    subtitle: Classification and Hypothesis Testing
+    links:
+      Project Link: https://github.com/christybiji/MIT-IDSS-Lead-Scoring-Model
+    highlights:
+    - >-
+      Developed an end-to-end lead scoring pipeline by tuning multiple classifiers (<strong>Random Forest, Decision Tree</strong>) with GridSearchCV to optimize for recall (&gt;82%), enabling data-driven prioritization of high-potential sales leads.
+  - title: "MIT IDSS Project: Customer Personality Segmentation"
+    subtitle: Making Sense of Unstructured Data
+    links:
+      Project Link: https://github.com/christybiji/MIT-IDSS-Customer-Segmentation/blob/main/Learner_Fullcode_Notebook.ipynb
+    highlights:
+    - >-
+      Applied unsupervised learning (<strong>K-Means</strong>, PCA) to segment a retail customer database, identifying and profiling distinct high-value and low-value personas to inform targeted marketing and retention strategies.
+- title: Engineering Lungs with mtDNA-Edited iPSCs
+  subtitle: Tissue Engineering Project
+  year: 2021
+  sort_date: 2022-05-01
+  date: May 2022
+  links:
+    Technical Report: https://drive.google.com/file/d/184fPx2q_aPhLVmmhzl4-i1ZAozL0MHJV/view
+  highlights:
+  - >-
+    Proposed a novel framework for lung bioengineering combining decellularized scaffolds with autologous, <strong>mtDNA-edited iPSCs</strong> to prevent transplant rejection and expand the donor organ pool.
+- title: Knockout NEU3 gene target with CRISPR-Cas9
+  subtitle: Cell & Tissue Engineering Lab
+  year: 2021
+  sort_date: 2020-05-01
+  date: May 2020
+  links:
+    Project Report: https://drive.google.com/file/d/1n1EknQuvMJ0atfk0cJCJgjuuSYsp3M5M/view
+  highlights:
+  - >-
+    Engineered a CRISPR-Cas9 gene-editing tool to knock out the sialidase Neu3 in CHO cells, a strategy aimed at increasing the sialylation and therapeutic half-life of recombinant hIFN&gamma;.
