@@ -1,9 +1,8 @@
 ---
 show: true
-date: 2025-10-05 00:00:00 +0800
-group: City walks
-image: /assets/images/photography/peabody-library.jpg
+image: assets/images/photography/peabody-library.png
 caption: George Peabody Library
-location: Baltimore, MD
-alt: George Peabody Library
+orientation: portrait
+group: Photography
+date: 2019-06-09 00:00:00 +0000
 ---

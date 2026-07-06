@@ -1,10 +1,8 @@
 ---
 show: true
-date: 2025-10-02 00:00:00 +0800
-group: City walks
-image: /assets/images/photography/charles-river-bench-night.jpg
+image: assets/images/photography/charles-river-bench-night.png
+caption: Riverside bench at night
 orientation: landscape
-caption: Charles River at night
-location: Boston, MA
-alt: Charles River at night
+group: Photography
+date: 2019-05-25 00:00:00 +0000
 ---

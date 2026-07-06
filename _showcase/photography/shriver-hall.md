@@ -1,9 +1,8 @@
 ---
 show: true
-date: 2025-10-08 00:00:00 +0800
-group: City walks
-image: /assets/images/photography/shriver-hall.jpg
+image: assets/images/photography/shriver-hall.png
 caption: Shriver Hall
-location: Baltimore, MD
-alt: Shriver Hall
+orientation: portrait
+group: Photography
+date: 2019-06-11 00:00:00 +0000
 ---

@@ -1,9 +1,8 @@
 ---
 show: true
-date: 2025-10-09 00:00:00 +0800
-group: Everyday moments
-image: /assets/images/photography/forest-stream-dusk.jpg
+image: assets/images/photography/forest-stream-dusk.png
 caption: Forest stream at dusk
-location: Massachusetts
-alt: Forest stream at dusk
+orientation: portrait
+group: Photography
+date: 2019-06-07 00:00:00 +0000
 ---

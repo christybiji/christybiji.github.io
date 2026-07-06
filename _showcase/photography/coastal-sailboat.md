@@ -1,10 +1,8 @@
 ---
 show: true
-date: 2025-06-25 00:00:00 +0800
-group: Travel
-image: /assets/images/photography/coastal-sailboat.jpg
+image: assets/images/photography/coastal-sailboat.png
+caption: Sailboat off the jetty
 orientation: landscape
-caption: Sailboat on calm coastal waters
-location: Cape Cod, MA
-alt: Sailboat on calm coastal waters
+group: Photography
+date: 2019-05-20 00:00:00 +0000
 ---
