@@ -6,8 +6,11 @@ container_class: container-xl
 ---
 
 {% assign cards_by_group = site.showcase | sort: "date" | reverse | where: "show", true | group_by_exp: "item", "item.group" %}
+{% assign photo_groups = cards_by_group | where: "name", "Photography" %}
+{% assign other_groups = cards_by_group | where_exp: "group", "group.name != 'Photography'" %}
+{% assign ordered_groups = other_groups | concat: photo_groups %}
 
-{% for group in cards_by_group %}
+{% for group in ordered_groups %}
 {% if group.name != "" %}
 <h1>{{ group.name }}</h1>
 {% endif %}
